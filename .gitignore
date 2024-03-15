@@ -1,0 +1,88 @@
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Compiled binaries
+*.exe
+*.o
+
+# Log files
+*.log
+
+# Dependency directories
+node_modules/
+vendor/
+
+# IDE or editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+.bak
+.swp
+
+# Compiled code or build artifacts
+*.class
+*.jar
+target/
+dist/
+
+# Database files or directories
+*.sqlite
+*.db
+
+# Operating system files
+.DS_Store
+thumbs.db
+
+# Logs and debugging output
+*.log
+debug.log
+
+# Personal user settings
+.history
+.bash_history
+
+# Package manager directories
+pip-cache/
+yarn.lock
+npm-debug.log
+
+# Compiled files
+*.class
+*.pyc
+
+# Binary files
+*.exe
+*.dll
+*.so
+
+# Build directories
+build/
+bin/
+out/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# Log files
+*.log
+log/
+
+# Dependency directories
+node_modules/
+vendor/
+
+# User-specific files or directories
+.DS_Store
+Thumbs.db
