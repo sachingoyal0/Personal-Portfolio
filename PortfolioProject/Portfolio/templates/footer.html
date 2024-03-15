@@ -1,0 +1,252 @@
+{% load static %}
+
+<!-- Footer Section Start -->
+<section class="footer">
+    <div class="container footer-container">
+        <!-- Links Section -->
+        <div class="foot-sec">
+            <h3>Links</h3>
+            <ul>
+                <li><a class="footer-link" href="{% url 'home' %}">Home</a></li>
+                <li><a class="footer-link" href="{% url 'about' %}">About</a></li>
+                <li>
+                    <a class="footer-link" href="{% url 'projects' %}">Portfolio</a>
+                </li>
+                <li><a class="footer-link" href="{% url 'services' %}">Services</a></li>
+                <li><a class="footer-link" href="{% url 'blog' %}">Blog</a></li>
+                <li><a class="footer-link" href="{% url 'faq' %}">Faq</a></li>
+                <li>
+                    <a class="footer-link" href="{% url 'testimonial' %}">Testimonials</a>
+                </li>
+                <li><a class="footer-link" href="{% url 'contact' %}">Contact</a></li>
+                <!-- Add more footer links as needed -->
+            </ul>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="foot-sec">
+            <h3>Connect with Me</h3>
+            <p>Feel free to get in touch:</p>
+            <ul>
+                <!-- Add or update your social media links -->
+                <li>
+                    <a class="footer-link" href="https://www.facebook.com/your-profile" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link" href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link" href="https://instagram.com/sachin_goyal47?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </li>
+
+                <!-- GitHub Link -->
+                <li>
+                    <a class="footer-link" href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </li>
+
+                <!-- Replit Link -->
+                <li>
+                    <a class="footer-link" href="https://replit.com/@your-replit-username" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-reddit"></i> Replit
+                    </a>
+                </li>
+
+                <!-- Discord Link -->
+                <li>
+                    <a class="footer-link" href="https://discord.gg/your-discord-invite-code" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                </li>
+                <!-- Add more social media links as needed -->
+
+                <!-- Email and Phone -->
+                <li>
+                    <a href="mailto:sachingoyalg2020@gmail.com" target="_blank" rel="noopener noreferrer">
+                        <i class="far fa-envelope"></i> sachingoyalg2020@gmail.com</a>
+                </li>
+                <li>
+                    <a href="tel:+916261158368" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-phone"></i> +91 6261158368</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Services Section -->
+        <div class="foot-sec">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="{% url 'terms_of_service' %}">Terms & Conditions</a></li>
+                <li><a href="{% url 'help' %}">Help</a></li>
+                <li><a href="{% url 'privacy' %}">Privacy</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'clients' %}">Clients</a></li>
+                <li><a href="{% url 'error404' %}">Error 404</a></li>
+                <li><a href="{% url 'testimonial' %}">Testimonials</a></li>
+                <li><a href="{% url 'ExtraSection' %}">Extra Section</a></li>
+                <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+                <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="foot-sec">
+            <h3>Subscribe to our Newsletter</h3>
+            <p>
+                Stay updated with the latest news and offers by subscribing to our
+                newsletter.
+            </p>
+            <form class="newsletter-form">
+                <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email"
+                    required />
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="foot-copy-sec" role="contentinfo">
+        <p class="copyright" itemprop="copyrightHolder">
+            &copy; <span itemprop="copyrightYear">2023-2024</span> Sachin Goyal. All
+            rights reserved. <a href="/privacy-policy">Privacy Policy</a>
+        </p>
+    </div>
+</section>
+<!-- Footer Section End -->
+
+<!-- <script src="{% static 'JavaScript/footer.js' %}"></script> -->
+
+<!-- ... Back to top feature Start ... -->
+<!-- <section id="back-to-top ">
+    <a href="#top " class="back-to-top-btn "><i class="fas fa-chevron-up "></i></a>
+</section> -->
+<!-- ... Back to top feature End ... -->
+
+<!-- <script>
+    document.querySelector('.footer .newsletter-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        var email = document.getElementById('newsletter-email').value;
+
+        // You can add your own logic here to subscribe the user to the newsletter
+
+        // Clear the input field
+        document.getElementById('newsletter-email').value = '';
+
+        // Display a success message or perform any other action
+        alert('Thank you for subscribing to our newsletter!');
+    });
+</script>
+<script>
+    document.querySelector('.newsletter-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        var email = document.getElementById('newsletter-email').value;
+
+        // You can add your own logic here to subscribe the user to the newsletter
+
+        // Clear the input field
+        document.getElementById('newsletter-email').value = '';
+
+        // Display a success message or perform any other action
+        alert('Thank you for subscribing to our newsletter!');
+    });
+
+    // Navigation Menu Functionality
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+
+    // Smooth Scrolling
+    const links = document.querySelectorAll('.nav-menu a');
+
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+
+            const target = document.querySelector(link.getAttribute('href'));
+
+            window.scrollTo({
+                top: target.offsetTop - 50,
+                behavior: 'smooth'
+            });
+
+            navMenu.classList.remove('show');
+        });
+    });
+
+    // FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+
+            question.classList.toggle('active');
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+
+    // Contact Form Submission
+    const contactForm = document.querySelector('.contact-form');
+    const formName = document.querySelector('#name');
+    const formEmail = document.querySelector('#email');
+    const formMessage = document.querySelector('#message');
+
+    contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const nameValue = formName.value.trim();
+        const emailValue = formEmail.value.trim();
+        const messageValue = formMessage.value.trim();
+
+        if (nameValue === '' || emailValue === '' || messageValue === '') {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        // Code to handle form submission (e.g., send form data to a server)
+
+        // Clear form fields after submission
+        formName.value = '';
+        formEmail.value = '';
+        formMessage.value = '';
+    });
+
+    // Testimonials Carousel
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    let currentItemIndex = 0;
+
+    function showTestimonial(index) {
+        testimonialItems.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        testimonialItems[index].classList.add('active');
+    }
+
+    function changeTestimonial() {
+        currentItemIndex++;
+
+        if (currentItemIndex === testimonialItems.length) {
+            currentItemIndex = 0;
+        }
+
+        showTestimonial(currentItemIndex);
+    }
+
+    setInterval(changeTestimonial, 5000);
+</script> -->

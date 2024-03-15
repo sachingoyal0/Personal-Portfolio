@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}blog{% endblock %}
+{% block content %}
+
+
+<!-- ... Blog Section Start ... -->
+<div class="blog-post">
+    <ul>
+        <li><a href="{% url 'read_more' 1 %}">Article 1</a></li>
+        <h1>{{ content.title }}</h1>
+        <p>{{ content.body }}</p>
+    </ul>
+</div>
+<!-- <div class="blog-post">
+    <ul>
+        <li><a href="{% url 'read_more' 1 %}">Article 1</a></li>
+        <h1>{{ content.title }}</h1>
+        <p>{{ content.body }}</p>
+    </ul>
+</div>
+<div class="blog-post">
+    <ul>
+        <li><a href="{% url 'read_more' 2 %}">Article 1</a></li>
+        <h1>{{ content.title }}</h1>
+        <p>{{ content.body }}</p>
+    </ul>
+</div> -->
+
+<div class="blog-post">
+    <ul>
+        {% for content in content_list %}
+        <li>
+            <h2>{{ content_list.title }}</h2>
+            <p>{{ content_list.body|truncatewords:10 }}</p> <!-- Display first 10 words as an excerpt -->
+            <a href="{% url 'read_more' content.id %}">Read More</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<ul>
+    {% for content in contents %}
+    <li><a href="{% url 'read_more' content.pk %}">{{ content.title }}</a></li>
+    {% endfor %}
+</ul>
+<!-- ... Blog Section End ... -->
+
+{% endblock content %}

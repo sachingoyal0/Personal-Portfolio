@@ -1,0 +1,411 @@
+header nav {
+  width: 100%;
+  height: auto;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  display: block;
+  /* opacity: 0; */
+  flex-direction: column;
+  pointer-events: all;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  gap: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  /* display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      height: calc(100vh - 5.6rem);
+      clip-path: circle(50px at 90% -20%);
+      clip-path: circle(1500px at 90% -10%);
+      -webkit-clip-path: circle(1500px at 90% -10%);
+      align-items: center;
+      justify-content: space-around;
+      visibility: hidden;
+      transform: translateY(-50%);
+      transform: translate(10px, 10px);
+      transform: translate(-501px, -66px); */
+}
+
+header nav ul {
+  list-style-type: none;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: space-around;
+  gap: 10%;
+  /* display: block; */
+  /* z-index: 11; */
+  /* font-size: 19px; */
+  padding: 0vh 15vw;
+  /* top: -31%; */
+  /* left: 5%; */
+  right: 5%;
+  transform: translate(10%, 0%);
+  transition: all 250ms linear;
+}
+
+header nav ul li {
+  transform: translate(0%, 0%);
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  /* opacity: 0; */
+  /* pointer-events: none; */
+  transition: all 250ms linear;
+}
+
+header nav ul li a {
+  font-size: 25px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+
+  display: block;
+  padding: 10px 0;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  position: relative;
+}
+
+header nav ul li a:hover {
+  color: #e84a5f;
+  text-decoration: none;
+  color: #7002ff;
+  transition: all ease-in-out 350ms;
+  background-color: transparent;
+  text-decoration: none;
+  /* color: #ffeba7; */
+}
+
+.nav ul li a:hover:after {
+  width: 100%;
+}
+
+.nav-links li a:after {
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  content: "";
+  height: 2vh;
+  margin-top: -1vh;
+  width: 0;
+  left: 0;
+  background-color: #353746;
+  opacity: 0.8;
+  transition: width 250ms linear;
+}
+.nav-links li a::before {
+  content: "";
+  display: block;
+  height: 0.2rem;
+  width: 0%;
+  margin-top: -10px;
+  background-color: #61dafb;
+  position: absolute;
+  transition: all ease-in-out 250ms;
+  bottom: 25%;
+}
+
+.nav-links li a:hover::before {
+  width: 100%;
+  box-shadow: 0px -10px 100px 5px rgba(255, 255, 255, 0.575);
+}
+
+.nav-links li .nav-link-active::before {
+  width: 40%;
+}
+
+label.toggle-btn.toggle-btn__cross {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  label.toggle-btn.toggle-btn__cross {
+    display: inline;
+  }
+
+  .toggle-btn {
+    display: block;
+    position: fixed;
+    position: absolute;
+    z-index: 10;
+    /* top: 0%; */
+    right: 5%;
+    /* transform: translate(-50%, 50%); */
+    cursor: pointer;
+  }
+
+  .toggle-btn .bar {
+    width: 30px;
+    height: 2px;
+    margin: 7px auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .toggle-btn .bar:nth-child(2) {
+    width: 20px;
+  }
+
+  /* Styles for the navigation menu when the toggle is checked */
+  #toggle:checked ~ nav {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #toggle:checked ~ nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Styles for the navigation list items within the menu when the toggle is checked */
+  #toggle:checked ~ nav ul li {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@media (max-width: 900px) {
+  /* Transitions for individual list items to create a delay effect */
+  #toggle:checked ~ nav ul li:nth-child(1) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+  }
+
+  #toggle:checked ~ nav ul li:nth-child(2) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+  }
+
+  #toggle:checked ~ nav ul li:nth-child(3) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+  }
+
+  #toggle:checked ~ nav ul li:nth-child(4) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+  }
+
+  #toggle:checked ~ nav ul li:nth-child(5) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.5s;
+  }
+
+  #toggle:checked ~ nav ul li:nth-child(6) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.6s;
+  }
+
+  #toggle:checked ~ nav ul li:nth-child(7) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.7s;
+  }
+
+  #toggle:checked ~ nav ul li:nth-child(8) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.8s;
+  }
+
+  #toggle:checked ~ nav ul li:nth-child(9) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.9s;
+  }
+
+  /* Styles for the toggle button and its bars when the toggle is checked */
+  #toggle:checked + label.toggle-btn .bar {
+    background-color: rgb(0, 255, 191);
+  }
+
+  #toggle:checked + label.toggle-btn .bar:nth-child(2) {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  #toggle:checked + label.toggle-btn .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  #toggle:checked + label.toggle-btn .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Styles for the navigation menu when the toggle is not checked */
+  #toggle:not(:checked) ~ nav {
+    /* CSS styles for when the checkbox is not checked */
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #toggle:not(:checked) ~ nav ul {
+    /* Additional styles when the checkbox is not checked */
+    /* display: none; */
+  }
+
+  /* Styles for the navigation list items within the menu when the toggle is not checked */
+  #toggle:not(:checked) ~ nav ul li {
+    /* Additional styles for list items when the checkbox is not checked */
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+}
+@media (max-width: 900px) {
+  #toggle:not(:checked) ~ nav {
+    /* CSS styles for when the checkbox is not checked */
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #toggle:not(:checked) ~ nav ul {
+    /* Additional styles when the checkbox is not checked */
+    /* display: none; */
+  }
+
+  /* Styles for the navigation list items within the menu when the toggle is not checked */
+  #toggle:not(:checked) ~ nav ul li {
+    /* Additional styles for list items when the checkbox is not checked */
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  header nav {
+    background: linear-gradient(
+      rgba(170, 58, 255, 0.164),
+      rgba(0, 208, 255, 0.178),
+      rgba(0, 208, 255, 0.295),
+      rgba(34, 10, 255, 0.288)
+    );
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    opacity: 0;
+    list-style-type: none;
+    text-transform: uppercase;
+    flex-direction: column;
+    pointer-events: all;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    gap: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        height: calc(100vh - 5.6rem);
+        clip-path: circle(50px at 90% -20%);
+        clip-path: circle(1500px at 90% -10%);
+        -webkit-clip-path: circle(1500px at 90% -10%);
+        align-items: center;
+        justify-content: space-around;
+        visibility: hidden;
+        transform: translateY(-50%);
+        transform: translate(10px, 10px);
+        transform: translate(-501px, -66px); */
+  }
+}
+@media (max-width: 900px) {
+  /* Styles for the toggle button bars when the toggle is not checked */
+  #toggle:not(:checked) + label.toggle-btn .bar {
+    background-color: #ffffff;
+    /* Change this to your desired color */
+  }
+
+  #toggle:not(:checked) + label.toggle-btn .bar:nth-child(2) {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+
+  #toggle:not(:checked) + label.toggle-btn .bar:nth-child(1) {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  #toggle:not(:checked) + label.toggle-btn .bar:nth-child(3) {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+.logo {
+  position: absolute;
+  display: block;
+  z-index: 11;
+  font-size: 25px;
+  padding: 0vh 3vw;
+  top: 10%;
+  left: 5%;
+  transform: translate(-50%, 50%);
+}
+
+.logo .img {
+  height: 45px;
+  width: 7rem;
+  position: absolute;
+  display: block;
+  padding: 0;
+  margin: 0;
+  z-index: 9;
+  color: #dc143c;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.logo .img span{
+  color: #ffffff;
+}
+@keyframes border-transform {
+  0%,
+  100% {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  }
+
+  14% {
+    border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
+  }
+
+  28% {
+    border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
+  }
+
+  42% {
+    border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
+  }
+
+  56% {
+    border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
+  }
+
+  70% {
+    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+  }
+
+  84% {
+    border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
+  }
+}

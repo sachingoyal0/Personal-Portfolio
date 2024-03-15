@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Me{% endblock %}
+{% block content %}
+
+
+<!-- About Section Start -->
+<section class="about">
+    <div class="container about-container">
+        <h2>About Me</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat condimentum lacinia. Nulla eget
+            sagittis urna, eu eleifend leo.
+        </p>
+        <div class="about-content">
+            <img src="{{ user_data.profile_picture.url }}" alt="{{ user_data.name }}">
+            <div class="personal-info">
+                <h3>{{ user_data.name }}</h3>
+                <p>{{ user_data.age }} years old | {{ user_data.location }}</p>
+                <p>{{ user_data.profession }}</p>
+                <p>{{ user_data.bio }}</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Background</h3>
+            <p>{{ user_data.achievements }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Education</h3>
+            <p>{{ user_data.education }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Skills</h3>
+            <p>{{ user_data.skills }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Interests</h3>
+            <p>{{ user_data.interests }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Projects</h3>
+            <p>{{ user_data.projects }}</p>
+            <!-- You can add more project details here as needed -->
+        </div>
+
+        <div class="section">
+            <h3>Hobbies</h3>
+            <p>{{ user_data.hobbies }}</p>
+            <!-- You can add more hobby details here as needed -->
+        </div>
+
+        <div class="section">
+            <h3>Contact Information</h3>
+            <p>{{ user_data.contact_info }}</p>
+        </div>
+
+        <a href="{% url 'generate_pdf' %}" class="btn btn-primary"><button>Download CV as PDF</button></a>
+
+
+    </div>
+</section>
+
+<!-- About Section End -->
+
+{% endblock content %}
+{% block show_header_and_footer %}{% if False %}{% endif %}{% endblock %}

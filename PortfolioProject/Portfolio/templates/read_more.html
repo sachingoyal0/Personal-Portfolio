@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>Author: {{ article.author }}</p>
+    <p>Publication Date: {{ article.pub_date }}</p>
+    <p>{{ article.content }}</p>
+    <li><a href="{% url 'article_detail' %}">Back to Article Full detail List</a></li>
+    <li><a href="{% url 'article_list' %}">Back to Article List</a></li>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    {% load static %}
+    
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <!-- Add CSS and JavaScript references here -->
+    
+    <!-- Load CSS files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navmenu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/button.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/back_to_top.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new.css' %}">
+
+    <!-- Load JavaScript files -->
+    <script src="{% static 'JavaScript/script.js' %}"></script>
+    <script src="{% static 'JavaScript/main.js' %}"></script>
+    <script src="{% static 'JavaScript/header.js' %}"></script>
+    <script src="{% static 'JavaScript/skills.js' %}"></script>
+    <script src="{% static 'JavaScript/home.js' %}"></script>
+
+
+    <!-- Include only one version of Font Awesome (preferably the latest version) -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+ integrity="sha512-v3FZ8U7p7QTrMAhWBA6Fu6ZijurZwi1J5T1yP97nN/KEGz5KAOWSRiLoY58R6r0/uv6b6B+qM32j+fQeKM/H8g=="
+ crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        {% include 'header.html' %}
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+
+    <!-- Your page content goes here -->
+
+    <button class="scroll-button" id="scroll-top-button" onclick="scrollToTop()">&#8593;</button>
+    <div id="progress-bar-container"></div>
+    <button class="scroll-button" id="scroll-bottom-button" onclick="scrollToBottom()">&#8595;</button>
+
+    <script src="{% static 'JavaScript/base.js' %}"></script>
+
+</body>
+
+</html>

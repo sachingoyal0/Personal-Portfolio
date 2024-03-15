@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<title>Article List</title>
+<section id="article-blog">
+    <div class="article-container container">
+        <h1 class="article-list-title">Article List</h1>
+        <ul class="article-list">
+            {% for article in articles %}
+            <li class="article-item">
+                <img src="https://picsum.photos/800/400" alt="Article Image" class="article-image" />
+                <div class="article-content">
+                    <h3 class="article-title"><a href="{% url 'read_more' article.id %}">{{ article.title }}</a></h3>
+                    <div class="article-details">
+                        <p class="article-author">Author: {{ article.author }}</p>
+                        <p class="article-date">Publication Date: {{ article.pub_date }}</p>
+                        <p class="article-description">{{ article.short_description }}</p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <h1 class="all-articles-link"><a href="{% url 'article_detail' %}"><button>All Article Full
+                    Details</button></a></h1>
+    </div>
+</section>

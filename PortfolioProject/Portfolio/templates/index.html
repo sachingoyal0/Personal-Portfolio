@@ -1,0 +1,917 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock %}
+{% block content %}
+
+<section class="header">
+  <!-- <div class="home-head-page-container">
+    {% for item in home_items %}
+    <div class="portfolio-item">
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.description }}</p>
+      <img src="{{ item.image.url }}" alt="{{ item.title }}" />
+    </div>
+    {% endfor %}
+
+
+    <h1>Welcome to My Portfolio</h1>
+
+    {% if portfolio_items %}
+    <ul>
+      {% for item in portfolio_items %}
+      <li>{{ item.name }} - {{ item.description }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No items available.</p>
+    {% endif %}
+
+    
+  </div> -->
+  <div class="home-head-page-container">
+    <section class="home" id="home">
+      <div class="max-width">
+        <div class="home-content">
+          <div class="text-1">Hello, my name is</div>
+          <div class="text-2"><span>S</span>ac<span>hin</span></div>
+          <div class="text-3">And I'm a <span class="typing"></span></div>
+          <a href="https://github.com/SachinGoyal-0" target="_blank"><i class="fab fa-github"></i> Github</a>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          // Sticky navbar on scroll script
+          if ($(this).scrollTop() > 50) {
+            $(".navbar").addClass("sticky");
+          } else {
+            $(".navbar").removeClass("sticky");
+          }
+
+          // Scroll-up button show/hide script
+          if ($(this).scrollTop() > 1600) {
+            $(".scroll-up-btn").addClass("show");
+          } else {
+            $(".scroll-up-btn").removeClass("show");
+          }
+        });
+
+        // Slide-up script
+        $(".scroll-up-btn").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, "slow");
+        });
+
+        $(".navbar .menu li a").click(function () {
+          // Applying smooth scroll on menu items click
+          $("html, body").animate(
+            {
+              scrollTop: $($(this).attr("href")).offset().top,
+            },
+            800
+          );
+        });
+
+        // Toggle menu/navbar script
+        $(".menu-btn").click(function () {
+          $(".navbar .menu").toggleClass("active");
+          $(".menu-btn i").toggleClass("active");
+        });
+
+        // Typing text animation script
+        var typed = new Typed(".typing", {
+          strings: [
+            "YouTuber.",
+            "Python Developer.",
+            "Lifelong Learner.",
+            "Web Designer.",
+            "Frontend Developer."
+          ],
+          typeSpeed: 100,
+          backSpeed: 60,
+          loop: true,
+        });
+
+        var typed2 = new Typed(".typing-2", {
+          strings: [
+            "Electrical Engineer.",
+            "Python Developer.",
+            "Lifelong Learner.",
+            "Web Designer.",
+          ],
+          typeSpeed: 100,
+          backSpeed: 60,
+          loop: true,
+        });
+
+        // Owl carousel script
+        $(".carousel").owlCarousel({
+          margin: 20,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout: 2000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 1,
+              nav: false,
+            },
+            600: {
+              items: 2,
+              nav: false,
+            },
+            1000: {
+              items: 3,
+              nav: false,
+            },
+          },
+        });
+      });
+    </script>
+  </div>
+
+  <!-- <div class="container home-page-container">
+    
+  </div> -->
+
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- About Section Content START -->
+  <section class="about">
+    <div class="container about-container">
+      <h2>About Me</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat
+        condimentum lacinia. Nulla eget sagittis urna, eu eleifend leo.
+      </p>
+      <div class="about-content">
+        <img src="/static/Images/spider-man-peter parker.jpg" class="img" alt="User Name" />
+        <div class="personal-info">
+          <h3>Sachin Goyal</h3>
+          <p>20 years old | Location</p>
+          <p>Full Stack Developer</p>
+          <p>
+            Greetings! I'm [Sachin Goyal], a dynamic [Your Profession/Title]
+            hailing from the vibrant city of [Shajapur]. I live by the
+            philosophy that life is a continuous journey of growth and
+            discovery.
+          </p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-link" onclick="openTab(event, 'Professional')">
+            Professional Journey
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'Academic')">
+            Academic Background
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'Hobbies')">
+            Hobbies, Interests and Passions
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'Skill')">
+            Skill Set
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'Projects')">
+            Noteworthy Projects
+          </button>
+          <button class="tab-link" id="defaultOpen" onclick="openTab(event, 'Connect')">
+            Connect with Me
+          </button>
+        </div>
+      </div>
+
+      <div class="tab-content" id="Professional">
+        <!-- Professional Journey Section -->
+        <div class="about-section">
+          <h3>Professional Journey</h3>
+          <p>
+            With a solid foundation of [X years/months] in [Your
+            Industry/Field], I've had the privilege of contributing to [Your
+            Company/Projects] and making a meaningful impact. One of my proudest
+            accomplishments includes [Highlight a Key Achievement or Project].
+          </p>
+          <p>
+            I take pride in my journey, marked by numerous achievements and
+            experiences that have shaped my professional and personal growth.
+            Throughout my career, I've [highlight a significant achievement,
+            project, or milestone]. This accomplishment reflects my commitment
+            to excellence and my ability to [mention a key skill or quality].
+            <br />
+            Additionally, my experiences have afforded me the opportunity to
+            [describe a relevant experience or learning]. Whether it's [mention
+            a specific project, role, or responsibility], I approach each
+            challenge with determination and a passion for [mention your passion
+            or area of expertise].
+            <br />
+            My journey is defined not just by the destinations reached but by
+            the lessons learned along the way. I am excited to continue this
+            trajectory, leveraging my skills and experiences to contribute
+            meaningfully to [mention your goals or aspirations].
+          </p>
+        </div>
+      </div>
+      <div class="tab-content" id="Academic">
+        <!-- Academic Background Section -->
+        <div class="about-section">
+          <h3>Academic Background</h3>
+          <p>
+            I hold a degree in [Your Degree] from [Your University/Institution].
+            This academic journey not only honed my analytical skills but also
+            fostered a passion for [Your Field/Area of Interest].
+          </p>
+          <p>
+            Apart from my primary field, I've delved into [Any Additional
+            Education or Certifications]. This diverse educational background
+            enriches my perspective and allows for interdisciplinary thinking.
+          </p>
+        </div>
+      </div>
+
+      <div class="tab-content" id="Hobbies">
+        <!-- Hobbies and Interests Section -->
+        <div class="about-section">
+          <h3>Hobbies, Interests and Passions</h3>
+          <p>
+            Embracing a passion for perpetual learning, I find immense joy in
+            exploring diverse realms of knowledge. While my heart beats for
+            technology and the fascinating world of computers, my curiosity
+            extends beyond, propelling me to constantly seek fresh insights.
+            <br />
+            In the digital landscape, I am not just a coder; I am an explorer,
+            unraveling the latest trends and pushing the boundaries of my
+            understanding. My commitment to staying at the forefront of
+            technological evolution is unwavering.
+            <br />
+            During moments of leisure, I immerse myself in the harmonies of
+            music, where every genre becomes a new adventure. Cinema is my
+            canvas for inspiration, and gaming is a playground of creativity and
+            strategy. These pursuits not only entertain me but also broaden my
+            perspective.
+            <br />
+            Engaging with seasoned professionals is a cornerstone of my journey.
+            Conversations with those who possess profound wisdom and knowledge
+            are invaluable. Learning from their experiences is not just a goal
+            but a continuous source of motivation.
+            <br />
+            The thrill of adventure is woven into the fabric of my life—whether
+            navigating the streets on two wheels, feeling the rush of driving,
+            or conquering the waters through swimming. The pursuit of adrenaline
+            is my way of embracing the unknown.
+            <br />
+            Beyond the digital and adventurous, my interests extend to the realm
+            of cars. From the purr of a powerful engine to the elegance of
+            automotive design, I find inspiration in every detail.
+            <br />
+            My passion lies in the constant pursuit of knowledge, and every
+            endeavor is an opportunity to fuel that passion. Whether delving
+            into coding challenges, deciphering complex problems, or engaging
+            with professionals, my enthusiasm is boundless.
+            <br />
+            In essence, I am not just a technology enthusiast; I am a
+            multifaceted individual with an insatiable appetite for growth,
+            experiences, and connections. Each day is an opportunity to explore,
+            learn, be inspired, and live my passion to the fullest.
+          </p>
+          <!-- You can add more details about your hobbies and interests as needed -->
+        </div>
+      </div>
+
+      <div class="tab-content" id="Skill">
+        <!-- Skill Set Section -->
+        <div class="about-section">
+          <h3>Skill Set</h3>
+          <p>
+            My skill set includes [List Key Skills]. I thrive in leveraging
+            these skills to innovate, problem-solve, and drive results. I'm
+            particularly adept at [Highlight a Specific Skill or Expertise].
+          </p>
+
+          <!-- ... Skills Section Start ... -->
+          <section class="skills">
+            <div class="container skills-list">
+              <h2>Skills</h2>
+              <section class="skill">
+                <h3>Html</h3>
+                <div class="progress">
+                  <div class="bar" id="Html-progress"></div>
+                  <span class="percentage" id="Html-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Web development is my passion, and I have extensive experience
+                  in building websites and web applications.
+                </div>
+              </section>
+
+              <section class="skill">
+                <h3>Css</h3>
+                <div class="progress">
+                  <div class="bar" id="css-progress"></div>
+                  <span class="percentage" id="css-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Graphic design allows me to express creativity and deliver
+                  visually appealing solutions to clients.
+                </div>
+              </section>
+
+              <section class="skill">
+                <h3>JavaScript</h3>
+                <div class="progress">
+                  <div class="bar" id="JavaScript-progress"></div>
+                  <span class="percentage" id="JavaScript-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+
+              <section class="skill">
+                <h3>Bootstrap</h3>
+                <div class="progress">
+                  <div class="bar" id="Bootstrap-progress"></div>
+                  <span class="percentage" id="Bootstrap-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+              <section class="skill">
+                <h3>Python</h3>
+                <div class="progress">
+                  <div class="bar" id="Python-progress"></div>
+                  <span class="percentage" id="Python-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+              <section class="skill">
+                <h3>Django</h3>
+                <div class="progress">
+                  <div class="bar" id="Django-progress"></div>
+                  <span class="percentage" id="Django-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+              <section class="skill">
+                <h3>Numpy</h3>
+                <div class="progress">
+                  <div class="bar" id="Numpy-progress"></div>
+                  <span class="percentage" id="Numpy-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+              <section class="skill">
+                <h3>Pandas</h3>
+                <div class="progress">
+                  <div class="bar" id="Pandas-progress"></div>
+                  <span class="percentage" id="Pandas-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+              <section class="skill">
+                <h3>Matplotlib</h3>
+                <div class="progress">
+                  <div class="bar" id="Matplotlib-progress"></div>
+                  <span class="percentage" id="Matplotlib-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+              <section class="skill">
+                <h3>Mysql</h3>
+                <div class="progress">
+                  <div class="bar" id="Mysql-progress"></div>
+                  <span class="percentage" id="Mysql-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+              <section class="skill">
+                <h3>React</h3>
+                <div class="progress">
+                  <div class="bar" id="React-progress"></div>
+                  <span class="percentage" id="React-percentage"></span>
+                </div>
+                <div class="skill-description">
+                  Content writing is a skill I've honed to deliver compelling
+                  and engaging content for various platforms.
+                </div>
+              </section>
+              <!-- Add more skills sections as needed -->
+            </div>
+          </section>
+          <!-- ... Skills Section End ... -->
+        </div>
+      </div>
+      <div class="tab-content" id="Projects">
+        <!-- Noteworthy Projects Section -->
+        <div class="about-section">
+          <h3>Noteworthy Projects</h3>
+          <p>
+            I've been fortunate to contribute to diverse projects, such as
+            [Project Name], where I played a pivotal role in [Project
+            Contribution]. Each project has been a stepping stone in my
+            professional evolution.
+          </p>
+        </div>
+      </div>
+      <div class="tab-content" id="Connect">
+        <!-- Connect with Me Section -->
+        <div class="about-section">
+          <h3>Connect with Me</h3>
+          <p>
+            I love connecting with fellow enthusiasts! Feel free to connect with
+            me on [Your Social Media Links] or drop me a line at [Your Email
+            Address]. I'm always open to collaborations, discussions, and shared
+            adventures.
+          </p>
+        </div>
+      </div>
+      <!-- Closing Note Section -->
+      <div class="about-section note">
+        <h3>Closing Note</h3>
+        <p>
+          Life is an incredible journey, and I'm excited about the chapters yet
+          to unfold. Let's connect, collaborate, and make a positive impact
+          together!
+        </p>
+      </div>
+
+      <div class="button-container">
+        <a href="{% url 'generate_pdf' %}" class="btn btn-primary" download="GeneratedResume.pdf">
+          <button>Download CV as PDF</button>
+        </a>
+
+        <a href="mailto:sachingoyalg2020@gmail.com" class="btn btn-secondary">
+          <button>Hire Me</button>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+          tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tabLinks.length; i++) {
+          tabLinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.classList.add("active");
+      }
+
+      // Set the default tab as active when the page loads
+      document.getElementById("defaultOpen").click();
+    </script>
+  </section>
+  <!-- About Section Content END -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Portfolio Section Start ... -->
+  <section class="portfolio">
+    <div class="container">
+      <h2>Portfolio</h2>
+
+      <!-- Add filter buttons -->
+      <div class="filter-buttons">
+        <button class="filter-button" data-category="all">All</button>
+        <button class="filter-button" data-category="frontend">Frontend</button>
+        <button class="filter-button" data-category="backend">Backend</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item" data-category="frontend">
+          <img class="portfolio-image-overlay" src="{% static 'images/frontend-project1.jpg' %}"
+            alt="Frontend Project 1" />
+          <h3>Frontend Project 1</h3>
+          <p>Description of Frontend Project 1</p>
+          <a href="#frontend-project1" class="btn">View Project <i class="fa fa-arrow-right"></i></a>
+        </div>
+
+        <div class="portfolio-item" data-category="backend">
+          <img class="portfolio-image-overlay" src="{% static 'images/backend-project1.jpg' %}"
+            alt="Backend Project 1" />
+          <h3>Backend Project 1</h3>
+          <p>Description of Backend Project 1</p>
+          <a href="#backend-project1" class="btn">View <i class="fa fa-arrow-right"></i></a>
+        </div>
+
+        <div class="portfolio-item" data-category="frontend">
+          <img class="portfolio-image-overlay" src="{% static 'images/frontend-project2.jpg' %}"
+            alt="Frontend Project 2" />
+          <h3>Frontend Project 2</h3>
+          <p>Description of Frontend Project 2</p>
+          <a href="#frontend-project2" class="btn">View Project <i class="fa fa-arrow-right"></i></a>
+        </div>
+
+        <div class="portfolio-item" data-category="backend">
+          <img class="portfolio-image-overlay" src="{% static 'images/backend-project2.jpg' %}"
+            alt="Backend Project 2" />
+          <h3>Backend Project 2</h3>
+          <p>Description of Backend Project 2</p>
+          <a href="#backend-project2" class="btn">View Project <i class="fa fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Add more portfolio items as needed -->
+      </div>
+    </div>
+  </section>
+  <!-- ... Portfolio Section End ... -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get all filter buttons
+      const filterButtons = document.querySelectorAll(".filter-button");
+
+      // Get all portfolio items
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      // Add click event listener to each filter button
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Get the category from the data attribute
+          const category = button.getAttribute("data-category");
+
+          // Hide all portfolio items
+          portfolioItems.forEach((item) => {
+            item.style.display = "none";
+          });
+
+          // Show only the items that belong to the selected category or show all if "All" is clicked
+          if (category === "all") {
+            portfolioItems.forEach((item) => {
+              item.style.display = "block";
+            });
+          } else {
+            const filteredItems = document.querySelectorAll(
+              `.portfolio-item[data-category="${category}"]`
+            );
+            filteredItems.forEach((item) => {
+              item.style.display = "block";
+            });
+          }
+        });
+      });
+    });
+
+    // Add your provided script here
+    var containerEl = document.querySelector(".portfolio-grid");
+
+    var mixer = mixitup(containerEl, {
+      animation: {
+        effects: "fade translateZ(-100px)",
+        effectsIn: "fade translateY(-100%)",
+        easing: "cubic-bezier(0.645, 0.045, 0.355, 1)",
+      },
+    });
+
+    $("[data-fancybox]").fancybox({
+      loop: true,
+      hash: true,
+      transitionEffect: "slide",
+      clickContent: function (current, event) {
+        return current.type === "image" ? "next" : false;
+      },
+    });
+  </script>
+
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Services Section Start ... -->
+  <section id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-scroll">
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="inner-card service-content">
+            <div class="front">
+              <h3>Web Development:</h3>
+              <p>
+                Design and develop dynamic and responsive websites using
+                frameworks like Django, Flask, or FastAPI on the backend.
+              </p>
+            </div>
+            <div class="back">
+              <p>Back content for Web Development.</p>
+            </div>
+          </div>
+          <div class="image-overlay">
+            <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Web Development Image" />
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <div class="inner-card service-content">
+            <div class="front">
+              <h3>Frontend Development:</h3>
+              <p>
+                Our team builds mobile apps that offer seamless experiences on
+                both Android and iOS platforms.
+              </p>
+            </div>
+            <div class="back">
+              <p>Back content for Web Development.</p>
+            </div>
+          </div>
+          <div class="image-overlay">
+            <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="UI/UX Design Image" />
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <div class="inner-card service-content">
+            <div class="front">
+              <h3>Backend Development:</h3>
+              <p>
+                We design intuitive and visually appealing user interfaces to
+                enhance user experience.
+              </p>
+            </div>
+            <div class="back">
+              <p>Back content for Web Development.</p>
+            </div>
+          </div>
+          <div class="image-overlay">
+            <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Web Development Image" />
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="inner-card service-content">
+            <div class="front">
+              <h3>Database Management</h3>
+              <p>
+                Our experts handle data efficiently, ensuring secure and
+                optimized database management.
+              </p>
+            </div>
+            <div class="back">
+              <p>Back content for Web Development.</p>
+            </div>
+          </div>
+          <div class="image-overlay">
+            <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Web Development Image" />
+          </div>
+        </div>
+
+        <!-- Add two more service items below -->
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="inner-card service-content">
+            <div class="front">
+              <h3>Analytics and Reporting</h3>
+              <p>
+                We provide advanced analytics and reporting solutions to help
+                you make data-driven decisions.
+              </p>
+            </div>
+            <div class="back">
+              <p>Back content for Web Development.</p>
+            </div>
+          </div>
+          <div class="image-overlay">
+            <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Web Development Image" />
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <div class="inner-card service-content">
+            <div class="front">
+              <h3>Cloud Services</h3>
+              <p>
+                Our cloud services offer scalability and reliability for your
+                applications and data storage.
+              </p>
+            </div>
+            <div class="back">
+              <p>Back content for Web Development.</p>
+            </div>
+          </div>
+          <div class="image-overlay">
+            <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Web Development Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ... Services Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Skills Section Start ... -->
+
+  <!-- ... Skills Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Blog Section Start ... -->
+  <section id="blog">
+    <div class="container">
+      <h2>Blog</h2>
+      <div class="blog-grid">
+        <div class="blog-item">
+          <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Blog Post Image 1" />
+          <h3>Blog Post Title 1</h3>
+          <p>Posted on <time datetime="2023-07-01">July 1, 2023</time></p>
+          <p>Short description of the blog post.</p>
+          <a href="#" class="btn"><button>Read More</button> </a>
+        </div>
+        <div class="blog-item">
+          <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Blog Post Image 2" />
+          <h3>Blog Post Title 2</h3>
+          <p>Posted on <time datetime="2023-06-15">June 15, 2023</time></p>
+          <p>Short description of the blog post.</p>
+          <a href="#" class="btn"><button>Read More</button></a>
+        </div>
+        <!-- Add more blog posts as needed -->
+
+        <!-- Move the following outside of the blog grid -->
+        <div class="blog-item">
+          <!-- <img src="https://picsum.photos/800/400" alt="Blog Post Image 2" /> -->
+          <h3>Unveiling the World of Articles and Blogs</h3>
+          <p>
+            Explore a diverse range of topics in our latest blog post. From
+            insightful articles on technology and innovation to engaging content
+            on lifestyle and culture, our blog is a treasure trove of knowledge
+            and entertainment. Join us as we embark on a journey through
+            captivating narratives and thought-provoking insights.
+          </p>
+          <a href="{% url 'article_list' %}" class="btn"><button>Discover More Articles.....</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ... Blog Section End ... -->
+
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Testimonials Section Start ... -->
+
+  <!-- ... Testimonials Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Enhanced FAQ Section Start ... -->
+  <section id="faq">
+    <div class="faq-container">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Q: What technologies do you specialize in?</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <p class="faq-answer">
+          A: I specialize in web development technologies such as HTML, CSS,
+          JavaScript, and frameworks like React.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Q: Can you tell us about your design process?</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <p class="faq-answer">
+          A: My design process involves understanding client requirements,
+          creating wireframes, and refining the design iteratively.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Q: How do you stay updated with the latest industry trends?</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <p class="faq-answer">
+          A: I stay updated by regularly reading blogs, participating in online
+          communities, and attending industry conferences.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Q: What projects are you most proud of?</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <p class="faq-answer">
+          A: I'm proud of projects where I successfully tackled challenging
+          problems and delivered solutions that exceeded expectations.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Q: How do you handle tight deadlines?</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <p class="faq-answer">
+          A: I prioritize tasks, break down the work into manageable chunks, and
+          maintain effective communication to meet deadlines.
+        </p>
+      </div>
+
+      <!-- Add more FAQ items as needed -->
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const questions = document.querySelectorAll(".faq-question");
+        const answers = document.querySelectorAll(".faq-answer");
+
+        questions.forEach((question, index) => {
+          question.addEventListener("click", () => {
+            answers.forEach((answer, i) => {
+              if (i !== index) {
+                answer.classList.remove("active");
+                answer.style.maxHeight = null;
+              }
+            });
+
+            answers[index].classList.toggle("active");
+            if (answers[index].classList.contains("active")) {
+              answers[index].style.maxHeight =
+                answers[index].scrollHeight + "px";
+            } else {
+              answers[index].style.maxHeight = null;
+            }
+          });
+        });
+      });
+    </script>
+  </section>
+  <!-- ... Enhanced FAQ Section End ... -->
+
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- Other section content START -->
+  <!-- Team Section Start -->
+
+  <!-- Team Section End -->
+
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Clients Section Start ... -->
+
+  <!-- ... Clients Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Projects Section Start ... -->
+
+  <!-- ... Projects Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Pricing Section Start ... -->
+
+  <!-- ... Pricing Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Contact Section Start ... -->
+
+  <!-- ... Contact Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Terms-of-service Section Start ... -->
+
+  <!-- ... Terms-of-service Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Privacy-Policy Section Start ... -->
+
+  <!-- ... Privacy-Policy Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Privacy Section Start ... -->
+
+  <!-- ... Privacy Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+  <!-- ... Help Section Start ... -->
+
+  <!-- ... Help Section End ... -->
+  <!-- ----------------------------------------********--------------------------- -->
+
+  <!-- Other section content START -->
+  <!-- ----------------------------------------********--------------------------- -->
+  {% endblock %}
+</section>

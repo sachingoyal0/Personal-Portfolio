@@ -1,0 +1,13 @@
+<!-- {% block title %}article_detail{% endblock %} -->
+
+
+{% for article in articles %}
+
+<div class="article">
+    <h2><a href="{% url 'read_more' article.id %}">{{ article.title }}</a></h2>
+    <p>Author: {{ article.author }}</p>
+    <p>Publication Date: {{ article.pub_date }}</p>
+    <!-- <p>{{ article.short_description }}</p> -->
+    <p>{{ article.content }}</p>
+    {% endfor %}
+</div>
