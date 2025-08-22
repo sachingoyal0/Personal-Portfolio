@@ -1,0 +1,306 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Skills - My Expertise{% endblock %}
+
+{% block content %}
+<!-- Skills Header -->
+<section class="skills-header py-5 bg-gradient-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 mb-3">My Skills & Expertise</h1>
+                <p class="lead">A comprehensive overview of my technical skills and proficiency levels</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Categories -->
+<section class="skills-content py-5">
+    <div class="container">
+        {% if skills_by_category %}
+        {% for category, skills in skills_by_category.items %}
+        <div class="skills-category mb-5">
+            <div class="category-header text-center mb-4">
+                <h2 class="category-title">{{ category }}</h2>
+                <div class="category-line"></div>
+            </div>
+            
+            <div class="row">
+                {% for skill in skills %}
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                {% if skill.icon %}
+                                <i class="{{ skill.icon }}"></i>
+                                {% else %}
+                                <i class="fas fa-code"></i>
+                                {% endif %}
+                            </div>
+                            <div class="skill-info">
+                                <h4 class="skill-name">{{ skill.name }}</h4>
+                                <div class="skill-level">
+                                    <span class="level-text">Level {{ skill.proficiency }}/10</span>
+                                    <div class="skill-stars">
+                                        {% for i in "12345678910" %}
+                                        {% if forloop.counter <= skill.proficiency %}
+                                        <i class="fas fa-star filled"></i>
+                                        {% else %}
+                                        <i class="far fa-star"></i>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-progress-container">
+                            <div class="skill-progress-bar">
+                                <div class="skill-progress-fill" style="width: {{ skill.proficiency|add:0 }}0%"></div>
+                            </div>
+                            <span class="skill-percentage">{{ skill.proficiency|add:0 }}0%</span>
+                        </div>
+                        
+                        <div class="skill-description">
+                            <p>
+                                {% if skill.proficiency >= 8 %}
+                                <strong>Expert Level:</strong> Advanced proficiency with deep understanding and ability to mentor others.
+                                {% elif skill.proficiency >= 6 %}
+                                <strong>Advanced Level:</strong> Strong proficiency with ability to work independently on complex projects.
+                                {% elif skill.proficiency >= 4 %}
+                                <strong>Intermediate Level:</strong> Good proficiency with ability to work on most standard projects.
+                                {% else %}
+                                <strong>Basic Level:</strong> Fundamental understanding with ability to work on simple projects.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        
+        <!-- Skills Summary -->
+        <div class="skills-summary mt-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="summary-card">
+                        <h3>Skills Overview</h3>
+                        <div class="summary-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">{{ skills_by_category|length }}</div>
+                                <div class="stat-label">Categories</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">
+                                    {% with total_skills=skills_by_category.values|length %}
+                                    {{ total_skills }}
+                                    {% endwith %}
+                                </div>
+                                <div class="stat-label">Total Skills</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">
+                                    {% with avg_level=skills_by_category.values|flatten|map:"proficiency"|avg %}
+                                    {{ avg_level|floatformat:1 }}
+                                    {% endwith %}
+                                </div>
+                                <div class="stat-label">Avg. Level</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-tools fa-3x text-muted mb-3"></i>
+            <h3>No skills information available</h3>
+            <p class="text-muted">Skills information will be displayed here once added to the system.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+.skills-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.category-header {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.category-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.skill-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+    font-size: 1.2em;
+}
+
+.skill-info {
+    flex: 1;
+}
+
+.skill-name {
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.skill-level {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.level-text {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.skill-stars {
+    display: flex;
+    gap: 2px;
+}
+
+.skill-stars .fa-star {
+    font-size: 0.8em;
+    color: #ddd;
+}
+
+.skill-stars .fa-star.filled {
+    color: #ffc107;
+}
+
+.skill-progress-container {
+    margin-bottom: 20px;
+}
+
+.skill-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.skill-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.skill-percentage {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: 500;
+}
+
+.skill-description {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.summary-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.summary-card h3 {
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.summary-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .skill-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .skill-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .summary-stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+</style>
+{% endblock %}

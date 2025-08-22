@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ portfolio.title }} - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Portfolio Detail Header -->
+<section class="portfolio-detail-header py-5 bg-gradient-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="portfolio-type-badge mb-3">
+                    <span class="badge bg-light text-dark">{{ portfolio.get_project_type_display }}</span>
+                </div>
+                <h1 class="display-4 mb-3">{{ portfolio.title }}</h1>
+                <p class="lead">{{ portfolio.short_description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Detail Content -->
+<section class="portfolio-detail-content py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8 mb-4">
+                <!-- Project Image -->
+                <div class="project-image-container mb-4">
+                    {% if portfolio.image %}
+                    <img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}" class="img-fluid rounded shadow">
+                    {% else %}
+                    <div class="no-image-placeholder">
+                        <i class="fas fa-image fa-5x text-muted"></i>
+                        <p class="text-muted mt-3">No image available</p>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Project Description -->
+                <div class="project-description mb-4">
+                    <h3>Project Overview</h3>
+                    <div class="description-content">
+                        {{ portfolio.description|linebreaks }}
+                    </div>
+                </div>
+
+                <!-- Technologies Used -->
+                <div class="technologies-section mb-4">
+                    <h3>Technologies Used</h3>
+                    <div class="tech-tags">
+                        {% for tech in portfolio.technologies_used|split:"," %}
+                        <span class="tech-tag">{{ tech|strip }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Project Links -->
+                {% if portfolio.github_link or portfolio.live_link %}
+                <div class="project-links mb-4">
+                    <h3>Project Links</h3>
+                    <div class="link-buttons">
+                        {% if portfolio.github_link %}
+                        <a href="{{ portfolio.github_link }}" target="_blank" class="btn btn-dark me-3">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                        {% endif %}
+                        {% if portfolio.live_link %}
+                        <a href="{{ portfolio.live_link }}" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Project Info Card -->
+                <div class="project-info-card mb-4">
+                    <h4>Project Details</h4>
+                    <div class="info-item">
+                        <strong>Type:</strong>
+                        <span class="badge bg-secondary">{{ portfolio.get_project_type_display }}</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Created:</strong>
+                        <span>{{ portfolio.created_at|date:"M Y" }}</span>
+                    </div>
+                    {% if portfolio.updated_at != portfolio.created_at %}
+                    <div class="info-item">
+                        <strong>Updated:</strong>
+                        <span>{{ portfolio.updated_at|date:"M Y" }}</span>
+                    </div>
+                    {% endif %}
+                    {% if portfolio.featured %}
+                    <div class="info-item">
+                        <strong>Status:</strong>
+                        <span class="badge bg-warning text-dark">Featured Project</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Related Projects -->
+                {% if related_portfolios %}
+                <div class="related-projects-card">
+                    <h4>Related Projects</h4>
+                    {% for related in related_portfolios %}
+                    <div class="related-project-item">
+                        <div class="related-project-image">
+                            {% if related.image %}
+                            <img src="{{ related.image.url }}" alt="{{ related.title }}" class="img-fluid rounded">
+                            {% else %}
+                            <div class="related-no-image">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="related-project-info">
+                            <h6>{{ related.title }}</h6>
+                            <p class="text-muted">{{ related.short_description|truncatewords:10 }}</p>
+                            <a href="{% url 'portfolio_detail' related.id %}" class="btn btn-outline-primary btn-sm">
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Back to Portfolio -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="{% url 'portfolio' %}" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.portfolio-detail-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.portfolio-type-badge .badge {
+    font-size: 1em;
+    padding: 8px 16px;
+}
+
+.project-image-container {
+    text-align: center;
+}
+
+.project-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.no-image-placeholder {
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 12px;
+    padding: 60px 20px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.project-description h3,
+.technologies-section h3,
+.project-links h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 8px;
+}
+
+.description-content {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1.1em;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.tech-tag:hover {
+    transform: translateY(-2px);
+}
+
+.link-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-info-card,
+.related-projects-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.project-info-card h4,
+.related-projects-card h4 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 8px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.info-item strong {
+    color: #333;
+}
+
+.info-item span {
+    color: #666;
+}
+
+.related-project-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.related-project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.related-project-image {
+    flex-shrink: 0;
+    width: 80px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.related-project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-no-image {
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 1.2em;
+}
+
+.related-project-info {
+    flex: 1;
+}
+
+.related-project-info h6 {
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.related-project-info p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .link-buttons {
+        flex-direction: column;
+    }
+    
+    .link-buttons .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .related-project-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .related-project-image {
+        width: 100%;
+        height: 120px;
+    }
+}
+</style>
+{% endblock %}

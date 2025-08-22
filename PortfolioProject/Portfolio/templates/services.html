@@ -1,0 +1,434 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Services - What I Offer{% endblock %}
+
+{% block content %}
+<!-- Services Header -->
+<section class="services-header py-5 bg-gradient-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 mb-3">My Services</h1>
+                <p class="lead">Comprehensive solutions tailored to your business needs</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Content -->
+<section class="services-content py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Web Development -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-description">
+                        Custom websites and web applications built with modern technologies. 
+                        From simple landing pages to complex e-commerce platforms.
+                    </p>
+                    <ul class="service-features">
+                        <li>Responsive Design</li>
+                        <li>Frontend & Backend Development</li>
+                        <li>E-commerce Solutions</li>
+                        <li>Content Management Systems</li>
+                        <li>API Development</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile App Development -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Mobile App Development</h3>
+                    <p class="service-description">
+                        Native and cross-platform mobile applications for iOS and Android. 
+                        Focus on user experience and performance.
+                    </p>
+                    <ul class="service-features">
+                        <li>iOS & Android Apps</li>
+                        <li>Cross-platform Development</li>
+                        <li>UI/UX Design</li>
+                        <li>App Store Optimization</li>
+                        <li>Maintenance & Updates</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Swift</span>
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Database Design -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="service-title">Database Design</h3>
+                    <p class="service-description">
+                        Efficient database architecture and optimization for scalable applications. 
+                        Data modeling and management solutions.
+                    </p>
+                    <ul class="service-features">
+                        <li>Database Architecture</li>
+                        <li>Data Modeling</li>
+                        <li>Performance Optimization</li>
+                        <li>Migration & Backup</li>
+                        <li>Security Implementation</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud & DevOps -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title">Cloud & DevOps</h3>
+                    <p class="service-description">
+                        Cloud infrastructure setup and DevOps practices for efficient deployment 
+                        and continuous integration.
+                    </p>
+                    <ul class="service-features">
+                        <li>Cloud Infrastructure</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Container Orchestration</li>
+                        <li>Monitoring & Logging</li>
+                        <li>Security & Compliance</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Jenkins</span>
+                        <span class="tech-tag">Terraform</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UI/UX Design -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-description">
+                        User-centered design solutions that enhance user experience and 
+                        drive engagement across all platforms.
+                    </p>
+                    <ul class="service-features">
+                        <li>User Research</li>
+                        <li>Wireframing & Prototyping</li>
+                        <li>Visual Design</li>
+                        <li>User Testing</li>
+                        <li>Design Systems</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Adobe XD</span>
+                        <span class="tech-tag">Sketch</span>
+                        <span class="tech-tag">InVision</span>
+                        <span class="tech-tag">Principle</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consulting -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="service-title">Technical Consulting</h3>
+                    <p class="service-description">
+                        Strategic technology consulting to help businesses make informed 
+                        decisions about their digital transformation.
+                    </p>
+                    <ul class="service-features">
+                        <li>Technology Strategy</li>
+                        <li>Architecture Review</li>
+                        <li>Performance Audits</li>
+                        <li>Security Assessment</li>
+                        <li>Team Training</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">Architecture</span>
+                        <span class="tech-tag">Strategy</span>
+                        <span class="tech-tag">Audit</span>
+                        <span class="tech-tag">Training</span>
+                        <span class="tech-tag">Planning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Section -->
+        <div class="process-section mt-5">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-title">My Development Process</h2>
+                    <div class="title-line"></div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Discovery</h4>
+                        <p>Understanding your requirements and project goals</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Planning</h4>
+                        <p>Creating detailed project roadmap and architecture</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Development</h4>
+                        <p>Building your solution with regular updates</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Delivery</h4>
+                        <p>Testing, deployment and ongoing support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section mt-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="cta-card">
+                        <h3>Ready to Start Your Project?</h3>
+                        <p class="lead">Let's discuss how I can help bring your ideas to life</p>
+                        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.services-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.section-title {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.title-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 2em;
+}
+
+.service-title {
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.service-description {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.service-features li {
+    color: #555;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.service-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.tech-tag {
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.process-section {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    border-radius: 12px;
+    margin-top: 60px;
+}
+
+.process-step {
+    text-align: center;
+    padding: 20px;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.process-step h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.process-step p {
+    color: #666;
+    margin: 0;
+}
+
+.cta-section {
+    margin-top: 60px;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.cta-card h3 {
+    margin-bottom: 15px;
+}
+
+.cta-card .lead {
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.cta-card .btn {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.cta-card .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        padding: 20px;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5em;
+    }
+    
+    .cta-card {
+        padding: 30px 20px;
+    }
+}
+</style>
+{% endblock %}

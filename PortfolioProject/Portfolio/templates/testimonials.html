@@ -1,0 +1,385 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Testimonials - Client Feedback{% endblock %}
+
+{% block content %}
+<!-- Testimonials Header -->
+<section class="testimonials-header py-5 bg-gradient-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 mb-3">Client Testimonials</h1>
+                <p class="lead">What my clients and colleagues say about my work</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Content -->
+<section class="testimonials-content py-5">
+    <div class="container">
+        {% if testimonials %}
+        <!-- Featured Testimonials -->
+        <div class="featured-testimonials mb-5">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-title">Featured Reviews</h2>
+                    <div class="title-line"></div>
+                </div>
+            </div>
+            
+            <div class="row">
+                {% for testimonial in testimonials %}
+                {% if testimonial.featured %}
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="testimonial-card featured">
+                        <div class="testimonial-header">
+                            <div class="client-info">
+                                {% if testimonial.image %}
+                                <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" class="client-avatar">
+                                {% else %}
+                                <div class="client-avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                {% endif %}
+                                <div class="client-details">
+                                    <h4 class="client-name">{{ testimonial.name }}</h4>
+                                    <p class="client-position">{{ testimonial.position }}</p>
+                                    <p class="client-company">{{ testimonial.company }}</p>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                {% for i in "12345" %}
+                                {% if forloop.counter <= testimonial.rating %}
+                                <i class="fas fa-star filled"></i>
+                                {% else %}
+                                <i class="far fa-star"></i>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-content">
+                            <blockquote>
+                                "{{ testimonial.content }}"
+                            </blockquote>
+                        </div>
+                        
+                        <div class="testimonial-footer">
+                            <span class="featured-badge">
+                                <i class="fas fa-star"></i> Featured
+                            </span>
+                            <span class="testimonial-date">
+                                {{ testimonial.created_at|date:"M Y" }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- All Testimonials -->
+        <div class="all-testimonials">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-title">All Testimonials</h2>
+                    <div class="title-line"></div>
+                </div>
+            </div>
+            
+            <div class="row">
+                {% for testimonial in testimonials %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="client-info">
+                                {% if testimonial.image %}
+                                <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" class="client-avatar">
+                                {% else %}
+                                <div class="client-avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                {% endif %}
+                                <div class="client-details">
+                                    <h4 class="client-name">{{ testimonial.name }}</h4>
+                                    <p class="client-position">{{ testimonial.position }}</p>
+                                    <p class="client-company">{{ testimonial.company }}</p>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                {% for i in "12345" %}
+                                {% if forloop.counter <= testimonial.rating %}
+                                <i class="fas fa-star filled"></i>
+                                {% else %}
+                                <i class="far fa-star"></i>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-content">
+                            <blockquote>
+                                "{{ testimonial.content|truncatewords:30 }}"
+                            </blockquote>
+                        </div>
+                        
+                        <div class="testimonial-footer">
+                            {% if testimonial.featured %}
+                            <span class="featured-badge">
+                                <i class="fas fa-star"></i> Featured
+                            </span>
+                            {% endif %}
+                            <span class="testimonial-date">
+                                {{ testimonial.created_at|date:"M Y" }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Testimonials Summary -->
+        <div class="testimonials-summary mt-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="summary-card">
+                        <h3>Testimonials Overview</h3>
+                        <div class="summary-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">{{ testimonials|length }}</div>
+                                <div class="stat-label">Total Reviews</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">
+                                    {% with featured_count=testimonials|dictsort:"featured"|length %}
+                                    {{ featured_count }}
+                                    {% endwith %}
+                                </div>
+                                <div class="stat-label">Featured</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">
+                                    {% with avg_rating=testimonials|map:"rating"|avg %}
+                                    {{ avg_rating|floatformat:1 }}
+                                    {% endwith %}
+                                </div>
+                                <div class="stat-label">Avg. Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-comments fa-3x text-muted mb-3"></i>
+            <h3>No testimonials available</h3>
+            <p class="text-muted">Client testimonials will be displayed here once added to the system.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+.testimonials-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.section-title {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.title-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    position: relative;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.testimonial-card.featured {
+    border: 2px solid #ffc107;
+    background: linear-gradient(135deg, #fff 0%, #fff9e6 100%);
+}
+
+.testimonial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.client-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #007bff;
+}
+
+.client-avatar-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    border: 3px solid #007bff;
+    color: #6c757d;
+    font-size: 1.5em;
+}
+
+.client-details h4 {
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.client-position {
+    color: #007bff;
+    margin-bottom: 2px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.client-company {
+    color: #666;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.rating {
+    display: flex;
+    gap: 2px;
+}
+
+.rating .fa-star {
+    color: #ddd;
+    font-size: 0.9em;
+}
+
+.rating .fa-star.filled {
+    color: #ffc107;
+}
+
+.testimonial-content {
+    margin-bottom: 20px;
+}
+
+.testimonial-content blockquote {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    border-left: 3px solid #007bff;
+    padding-left: 15px;
+}
+
+.testimonial-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.featured-badge {
+    background: #ffc107;
+    color: #333;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.testimonial-date {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.summary-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.summary-card h3 {
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.summary-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .testimonial-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .rating {
+        margin-top: 10px;
+    }
+    
+    .summary-stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+</style>
+{% endblock %}
