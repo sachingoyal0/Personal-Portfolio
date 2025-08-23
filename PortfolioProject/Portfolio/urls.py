@@ -29,6 +29,7 @@ urlpatterns = [
     path('clients/', TemplateView.as_view(template_name='clients.html'), name='clients'),
     path('ExtraSection/', views.ExtraSection, name='ExtraSection'),
     path('terms/', views.terms, name='terms'),
+    path('logo-demo/', TemplateView.as_view(template_name='logo-demo.html'), name='logo_demo'),
 
 
     path('read_more/<int:article_id>/', views.read_more, name='read_more'),
