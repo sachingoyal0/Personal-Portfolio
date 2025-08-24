@@ -9,23 +9,40 @@
         <div class="bar"></div>
         <div class="bar"></div>
     </label>
-    <a href="{% url 'home' %}" class="logo" target="_blank">
-        <div class="logo-container logo-container-3d logo-neon logo-particles">
-            <div class="logo-text">
-                <span class="logo-letter logo-s logo-text-wave logo-glitch" data-text="S">S</span>
-                <span class="logo-word logo-text-wave">a</span>
-                <span class="logo-word logo-text-wave">c</span>
-                <span class="logo-word logo-text-wave">h</span>
-                <span class="logo-word logo-text-wave">i</span>
-                <span class="logo-word logo-text-wave">n</span>
-                <span class="logo-letter logo-g logo-text-wave logo-glitch" data-text="G">G</span>
-                <span class="logo-word logo-text-wave">o</span>
-                <span class="logo-word logo-text-wave">y</span>
-                <span class="logo-word logo-text-wave">a</span>
-                <span class="logo-word logo-text-wave">l</span>
-            </div>
+    <a href="{% url 'home' %}" class="logo" aria-label="Home">
+        <div class="logo-container">
+            <svg width="48" height="48" viewBox="0 0 72 72" fill="none" class="arc-reactor">
+                <!-- Outer glowing ring -->
+                <circle cx="36" cy="36" r="32" stroke="var(--logo-primary-color)" stroke-width="4" filter="url(#glow)" />
+                <!-- Arc reactor core -->
+                <circle cx="36" cy="36" r="18" fill="var(--logo-secondary-color)" stroke="var(--logo-primary-color)" stroke-width="2" />
+                <!-- Inner lines (arc reactor style) -->
+                <g stroke="var(--logo-primary-color)" stroke-width="1.5">
+                    <line x1="36" y1="18" x2="36" y2="54"/>
+                    <line x1="18" y1="36" x2="54" y2="36"/>
+                    <line x1="25" y1="25" x2="47" y2="47"/>
+                    <line x1="47" y1="25" x2="25" y2="47"/>
+                </g>
+                <!-- SG initials in center -->
+                <text x="36" y="40" text-anchor="middle" fill="var(--logo-text-color)" font-size="1.2rem" font-family="Montserrat, sans-serif" font-weight="bold">SG</text>
+                <defs>
+                    <filter id="glow" x="-10" y="-10" width="92" height="92">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+            </svg>
         </div>
     </a>
+    <div class="theme-toggle-container">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </div>
+    
     <nav class="nav navbar" style="top: 0%; position: fixed;">
         <ul class="pt-5 nav-links">
 

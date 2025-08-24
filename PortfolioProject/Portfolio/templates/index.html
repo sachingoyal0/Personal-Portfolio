@@ -38,7 +38,7 @@
       </div>
     </section>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <script>
@@ -139,352 +139,2017 @@
   <!-- ----------------------------------------********--------------------------- -->
   <!-- About Section Content START -->
   <section class="about">
-    <div class="container about-container">
-      <h2>About Me</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat
-        condimentum lacinia. Nulla eget sagittis urna, eu eleifend leo.
-      </p>
-      <div class="about-content">
-        <img src="/static/Images/spider-man-peter parker.jpg" class="img" alt="User Name" />
+    <div class="container about-container glass-bg">
+      <h2 class="about-title">About Me</h2>
+      <div class="about-header">
+        <div class="profile-img-wrapper">
+          <img src="/static/Images/spider-man-peter parker.jpg" class="profile-img static-profile" alt="Sachin Goyal" />
+        </div>
+        <style>
+          .profile-img-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            box-shadow: 0 8px 32px rgba(0,123,255,0.22);
+            overflow: visible;
+          }
+          .static-profile {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(0,123,255,0.18);
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            border: 5px solid #fff;
+          }
+          .profile-img-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #007bff33 0%, transparent 70%);
+            z-index: 1;
+            animation: pulseGlow 3s infinite alternate;
+            pointer-events: none;
+          }
+          @keyframes pulseGlow {
+            0%   { opacity: 0.5; }
+            100% { opacity: 1; }
+          }
+        </style>
         <div class="personal-info">
           <h3>Sachin Goyal</h3>
-          <p>20 years old | Location</p>
-          <p>Full Stack Developer</p>
-          <p>
-            Greetings! I'm [Sachin Goyal], a dynamic [Your Profession/Title]
-            hailing from the vibrant city of [Shajapur]. I live by the
-            philosophy that life is a continuous journey of growth and
-            discovery.
-          </p>
-        </div>
-
-        <div class="tabs">
-          <button class="tab-link" onclick="openTab(event, 'Professional')">
-            Professional Journey
-          </button>
-          <button class="tab-link" onclick="openTab(event, 'Academic')">
-            Academic Background
-          </button>
-          <button class="tab-link" onclick="openTab(event, 'Hobbies')">
-            Hobbies, Interests and Passions
-          </button>
-          <button class="tab-link" onclick="openTab(event, 'Skill')">
-            Skill Set
-          </button>
-          <button class="tab-link" onclick="openTab(event, 'Projects')">
-            Noteworthy Projects
-          </button>
-          <button class="tab-link" id="defaultOpen" onclick="openTab(event, 'Connect')">
-            Connect with Me
-          </button>
+          <p><i class="fas fa-user"></i> 20 years old &nbsp;|&nbsp; <i class="fas fa-map-marker-alt"></i> Shajapur</p>
+          <p><i class="fas fa-laptop-code"></i> Full Stack Developer</p>
+          <div class="about-intro"></div>
+            <p>
+              Hi! I'm Sachin, a passionate Full Stack Developer from Shajapur. I believe in continuous learning and love building impactful digital experiences. My journey is driven by curiosity, creativity, and a desire to solve real-world problems.
+            </p>
+          </div>
+          <div class="social-links"></div>
+              <a href="https://github.com/SachinGoyal-0" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/sachingoyal0/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
         </div>
       </div>
 
+      <div class="tabs">
+        <button class="tab-link themed-btn" onclick="openTab(event, 'Professional')">Professional Journey</button>
+        <button class="tab-link themed-btn" onclick="openTab(event, 'Academic')">Academic Background</button>
+        <button class="tab-link themed-btn" onclick="openTab(event, 'Hobbies')">Hobbies & Interests</button>
+        <button class="tab-link themed-btn" onclick="openTab(event, 'Skill')">Skill Set</button>
+        <button class="tab-link themed-btn" onclick="openTab(event, 'Projects')">Projects</button>
+        <button class="tab-link themed-btn" id="defaultOpen" onclick="openTab(event, 'Connect')">Connect</button>
+      </div>
+
+      <style>
+        /* Glassmorphism background with lighting effect */
+        .glass-bg {
+          background: rgba(255, 255, 255, 0.18);
+          border-radius: 28px;
+          box-shadow: 0 8px 40px 0 rgba(0, 123, 255, 0.18), 0 2px 12px rgba(0,0,0,0.08);
+          backdrop-filter: blur(18px) saturate(180%);
+          -webkit-backdrop-filter: blur(18px) saturate(180%);
+          border: 1.5px solid rgba(255,255,255,0.22);
+          position: relative;
+          overflow: hidden;
+          max-width: 1100px;
+          margin: 2rem auto 2.5rem auto;
+          padding: 3rem 2.5rem;
+        }
+        .glass-bg::before, .glass-bg::after {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          pointer-events: none;
+        }
+        .glass-bg::before {
+          top: -60px;
+          left: -60px;
+          width: 320px;
+          height: 320px;
+          background: radial-gradient(circle, #007bff55 0%, transparent 80%);
+          filter: blur(12px);
+          opacity: 0.7;
+          animation: lightMove1 6s infinite alternate;
+        }
+        .glass-bg::after {
+          bottom: -60px;
+          right: -60px;
+          width: 320px;
+          height: 320px;
+          background: radial-gradient(circle, #00c6ff55 0%, transparent 80%);
+          filter: blur(16px);
+          opacity: 0.7;
+          animation: lightMove2 7s infinite alternate;
+        }
+        @keyframes lightMove1 {
+          0% { transform: translateY(0) scale(1);}
+          100% { transform: translateY(30px) scale(1.08);}
+        }
+        @keyframes lightMove2 {
+          0% { transform: translateY(0) scale(1);}
+          100% { transform: translateY(-30px) scale(1.08);}
+        }
+        .about-header {
+          display: flex;
+          align-items: center;
+          gap: 2.2rem;
+          margin-bottom: 2.2rem;
+          position: relative;
+          z-index: 1;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .profile-img {
+          width: 160px;
+          height: 160px;
+          object-fit: cover;
+          border-radius: 50%;
+          box-shadow: 0 8px 32px rgba(0,123,255,0.22);
+          border: 5px solid #fff;
+          background: #fff;
+          transition: box-shadow 0.3s;
+          margin-bottom: 1rem;
+        }
+        .profile-img:hover {
+          box-shadow: 0 16px 48px rgba(0,123,255,0.28);
+        }
+        .personal-info h3 {
+          margin-bottom: 0.7rem;
+          font-size: 2rem;
+          color: #007bff;
+          font-weight: 800;
+          letter-spacing: 1px;
+        }
+        .personal-info p {
+          margin: 0.4rem 0;
+          font-size: 1.08rem;
+          color: #222;
+          font-weight: 500;
+        }
+        .about-intro {
+          margin-top: 0.7rem;
+          margin-bottom: 0.7rem;
+          font-size: 1.08rem;
+          color: #222;
+        }
+        .social-links {
+          margin-top: 0.7rem;
+        }
+        .social-links a {
+          margin-right: 14px;
+          font-size: 1.5rem;
+          color: #007bff;
+          background: #e3f2fd;
+          border-radius: 50%;
+          padding: 9px;
+          transition: color 0.2s, background 0.2s, transform 0.2s;
+          box-shadow: 0 2px 10px rgba(0,123,255,0.10);
+          display: inline-block;
+        }
+        .social-links a:last-child {
+          margin-right: 0;
+        }
+        .social-links a:hover {
+          color: #fff;
+          background: #007bff;
+          transform: scale(1.13) rotate(-8deg);
+        }
+        .tabs {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.6rem;
+          margin-bottom: 1.7rem;
+          position: relative;
+          z-index: 1;
+          justify-content: center;
+        }
+        .themed-btn {
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          color: #fff;
+          border: none;
+          border-radius: 28px;
+          padding: 11px 24px;
+          margin: 5px 8px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+          transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+          letter-spacing: 0.5px;
+        }
+        .themed-btn:hover, .tab-link.active {
+          background: linear-gradient(90deg, #0056b3 0%, #0096c7 100%);
+          box-shadow: 0 6px 20px rgba(0,123,255,0.18);
+          transform: translateY(-2px) scale(1.07);
+        }
+        .tab-content {
+          display: none;
+          margin-top: 1.7rem;
+          animation: fadeIn 0.5s;
+          position: relative;
+          z-index: 1;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px);}
+          to { opacity: 1; transform: translateY(0);}
+        }
+        .about-section {
+          background: rgba(255,255,255,0.85);
+          padding: 1.3rem;
+          border-radius: 14px;
+          box-shadow: 0 2px 10px rgba(0,123,255,0.06);
+          margin-bottom: 1.2rem;
+          border-left: 5px solid #007bff22;
+          font-size: 1.02rem;
+        }
+        .note {
+          background: #e3f2fd;
+          border-left: 5px solid #007bff;
+        }
+        .button-container {
+          display: flex;
+          gap: 1.2rem;
+          margin-top: 1.7rem;
+          position: relative;
+          z-index: 1;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .btn button {
+          padding: 11px 24px;
+          border-radius: 24px;
+          border: none;
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          color: #fff;
+          font-weight: 700;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background 0.2s, transform 0.2s;
+          box-shadow: 0 2px 10px rgba(0,123,255,0.10);
+        }
+        .btn button:hover {
+          background: linear-gradient(90deg, #0056b3 0%, #0096c7 100%);
+          transform: scale(1.07);
+        }
+        /* Skills Progress Bar */
+        .skills-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1.2rem;
+        }
+        .skill-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.2rem;
+          justify-content: center;
+        }
+        .skill {
+          flex: 1 1 180px;
+          background: #f8f9fa;
+          border-radius: 10px;
+          padding: 1rem;
+          box-shadow: 0 1px 6px rgba(0,123,255,0.07);
+          text-align: center;
+          min-width: 150px;
+          max-width: 200px;
+        }
+        .skill h4 {
+          margin-bottom: 0.5rem;
+          font-size: 1rem;
+          color: #007bff;
+          font-weight: 700;
+        }
+        .progress {
+          background: #e3f2fd;
+          border-radius: 8px;
+          height: 10px;
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: 0.1rem;
+        }
+        .bar {
+          height: 10px;
+          border-radius: 8px;
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          transition: width 0.6s;
+        }
+        @media (max-width: 900px) {
+          .about-header {
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+          }
+          .skill-row {
+            flex-direction: column;
+            gap: 1rem;
+          }
+          .glass-bg {
+            padding: 2rem 1rem;
+          }
+        }
+        @media (max-width: 600px) {
+          .profile-img {
+            width: 100px;
+            height: 100px;
+          }
+          .personal-info h3 {
+            font-size: 1.2rem;
+          }
+          .tabs {
+            flex-direction: column;
+            gap: 0.4rem;
+          }
+          .button-container {
+            flex-direction: column;
+            gap: 0.7rem;
+          }
+          .glass-bg {
+            padding: 1rem 0.5rem;
+          }
+          .about-section {
+            font-size: 0.96rem;
+          }
+        }
+        /* Portfolio Section */
+        .portfolio {
+          background: #f8f9fa;
+          padding: 3rem 0;
+        }
+        .portfolio .container {
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        .portfolio-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          justify-content: center;
+          margin-top: 2rem;
+        }
+        .portfolio-item {
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 2px 10px rgba(0,123,255,0.08);
+          padding: 1.5rem;
+          text-align: center;
+          width: 260px;
+          transition: box-shadow 0.2s, transform 0.2s;
+          position: relative;
+          overflow: hidden;
+        }
+        .portfolio-item:hover {
+          box-shadow: 0 6px 24px rgba(0,123,255,0.18);
+          transform: translateY(-4px) scale(1.03);
+        }
+        .portfolio-image-overlay {
+          width: 100%;
+          height: 140px;
+          object-fit: cover;
+          border-radius: 12px;
+          margin-bottom: 1rem;
+          box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+        }
+        .filter-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          margin-bottom: 1.5rem;
+        }
+        .filter-button {
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          color: #fff;
+          border: none;
+          border-radius: 22px;
+          padding: 8px 22px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+          transition: background 0.2s, transform 0.2s;
+        }
+        .filter-button:hover, .filter-button.active {
+          background: linear-gradient(90deg, #0056b3 0%, #0096c7 100%);
+          transform: scale(1.06);
+        }
+        /* Blog Section */
+        .blog-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          justify-content: center;
+          margin-top: 2rem;
+        }
+        .blog-item {
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 2px 10px rgba(0,123,255,0.08);
+          padding: 1.5rem;
+          text-align: center;
+          width: 320px;
+          transition: box-shadow 0.2s, transform 0.2s;
+          position: relative;
+          overflow: hidden;
+        }
+        .blog-item img {
+          width: 100%;
+          height: 140px;
+          object-fit: cover;
+          border-radius: 12px;
+          margin-bottom: 1rem;
+          box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+        }
+        .blog-item:hover {
+          box-shadow: 0 6px 24px rgba(0,123,255,0.18);
+          transform: translateY(-4px) scale(1.03);
+        }
+        /* FAQ Section */
+        .faq-container {
+          max-width: 900px;
+          margin: 0 auto;
+          background: #f8f9fa;
+          border-radius: 18px;
+          box-shadow: 0 2px 10px rgba(0,123,255,0.08);
+          padding: 2.5rem 2rem;
+          margin-bottom: 2.5rem;
+        }
+        .faq-item {
+          margin-bottom: 1.2rem;
+          background: #fff;
+          border-radius: 12px;
+          box-shadow: 0 1px 6px rgba(0,123,255,0.06);
+          padding: 1rem 1.5rem;
+          transition: box-shadow 0.2s;
+        }
+        .faq-item:last-child {
+          margin-bottom: 0;
+        }
+        .faq-question {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          font-weight: 700;
+          color: #007bff;
+          font-size: 1.08rem;
+        }
+        .faq-answer {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease;
+          font-size: 0.98rem;
+          color: #222;
+          margin-top: 0.4rem;
+        }
+        .faq-answer.active {
+          max-height: 200px;
+          margin-top: 0.4rem;
+        }
+        .toggle-icon {
+          font-size: 1.3rem;
+          color: #007bff;
+          margin-left: 1rem;
+          transition: transform 0.2s;
+        }
+        .faq-question.active .toggle-icon {
+          transform: rotate(45deg);
+        }
+        /* Premium font */
+        body, .about-container, .about-section, .tabs, .themed-btn, .personal-info h3, .personal-info p, .about-intro, .skill h4, .btn button {
+          font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+          font-weight: 500;
+        }
+      </style>
+
       <div class="tab-content" id="Professional">
-        <!-- Professional Journey Section -->
         <div class="about-section">
           <h3>Professional Journey</h3>
+          <ul>
+            <li>Worked on multiple web projects using Django, React, and Python.</li>
+            <li>Contributed to open-source and freelance projects, focusing on scalable and maintainable code.</li>
+            <li>Enjoy collaborating with teams and mentoring juniors.</li>
+          </ul>
           <p>
-            With a solid foundation of [X years/months] in [Your
-            Industry/Field], I've had the privilege of contributing to [Your
-            Company/Projects] and making a meaningful impact. One of my proudest
-            accomplishments includes [Highlight a Key Achievement or Project].
-          </p>
-          <p>
-            I take pride in my journey, marked by numerous achievements and
-            experiences that have shaped my professional and personal growth.
-            Throughout my career, I've [highlight a significant achievement,
-            project, or milestone]. This accomplishment reflects my commitment
-            to excellence and my ability to [mention a key skill or quality].
-            <br />
-            Additionally, my experiences have afforded me the opportunity to
-            [describe a relevant experience or learning]. Whether it's [mention
-            a specific project, role, or responsibility], I approach each
-            challenge with determination and a passion for [mention your passion
-            or area of expertise].
-            <br />
-            My journey is defined not just by the destinations reached but by
-            the lessons learned along the way. I am excited to continue this
-            trajectory, leveraging my skills and experiences to contribute
-            meaningfully to [mention your goals or aspirations].
+            My professional path is shaped by curiosity and a drive to deliver value. I love tackling new challenges and learning from every experience.
           </p>
         </div>
       </div>
       <div class="tab-content" id="Academic">
-        <!-- Academic Background Section -->
         <div class="about-section">
           <h3>Academic Background</h3>
+          <ul>
+            <li>Pursuing B.Tech in Electrical Engineering.</li>
+            <li>Completed several online certifications in Python, Web Development, and Data Science.</li>
+          </ul>
           <p>
-            I hold a degree in [Your Degree] from [Your University/Institution].
-            This academic journey not only honed my analytical skills but also
-            fostered a passion for [Your Field/Area of Interest].
-          </p>
-          <p>
-            Apart from my primary field, I've delved into [Any Additional
-            Education or Certifications]. This diverse educational background
-            enriches my perspective and allows for interdisciplinary thinking.
+            My academic journey has helped me build a strong foundation in problem-solving and analytical thinking.
           </p>
         </div>
       </div>
-
       <div class="tab-content" id="Hobbies">
-        <!-- Hobbies and Interests Section -->
         <div class="about-section">
-          <h3>Hobbies, Interests and Passions</h3>
+          <h3>Hobbies & Interests</h3>
+          <ul>
+            <li>Exploring new tech trends and coding challenges.</li>
+            <li>Listening to music, watching movies, and gaming.</li>
+            <li>Bike riding, swimming, and learning about cars.</li>
+            <li>Networking with professionals and learning from their experiences.</li>
+          </ul>
           <p>
-            Embracing a passion for perpetual learning, I find immense joy in
-            exploring diverse realms of knowledge. While my heart beats for
-            technology and the fascinating world of computers, my curiosity
-            extends beyond, propelling me to constantly seek fresh insights.
-            <br />
-            In the digital landscape, I am not just a coder; I am an explorer,
-            unraveling the latest trends and pushing the boundaries of my
-            understanding. My commitment to staying at the forefront of
-            technological evolution is unwavering.
-            <br />
-            During moments of leisure, I immerse myself in the harmonies of
-            music, where every genre becomes a new adventure. Cinema is my
-            canvas for inspiration, and gaming is a playground of creativity and
-            strategy. These pursuits not only entertain me but also broaden my
-            perspective.
-            <br />
-            Engaging with seasoned professionals is a cornerstone of my journey.
-            Conversations with those who possess profound wisdom and knowledge
-            are invaluable. Learning from their experiences is not just a goal
-            but a continuous source of motivation.
-            <br />
-            The thrill of adventure is woven into the fabric of my life—whether
-            navigating the streets on two wheels, feeling the rush of driving,
-            or conquering the waters through swimming. The pursuit of adrenaline
-            is my way of embracing the unknown.
-            <br />
-            Beyond the digital and adventurous, my interests extend to the realm
-            of cars. From the purr of a powerful engine to the elegance of
-            automotive design, I find inspiration in every detail.
-            <br />
-            My passion lies in the constant pursuit of knowledge, and every
-            endeavor is an opportunity to fuel that passion. Whether delving
-            into coding challenges, deciphering complex problems, or engaging
-            with professionals, my enthusiasm is boundless.
-            <br />
-            In essence, I am not just a technology enthusiast; I am a
-            multifaceted individual with an insatiable appetite for growth,
-            experiences, and connections. Each day is an opportunity to explore,
-            learn, be inspired, and live my passion to the fullest.
+            I believe in living life to the fullest and finding inspiration in every moment.
           </p>
-          <!-- You can add more details about your hobbies and interests as needed -->
         </div>
       </div>
-
       <div class="tab-content" id="Skill">
-        <!-- Skill Set Section -->
         <div class="about-section">
           <h3>Skill Set</h3>
-          <p>
-            My skill set includes [List Key Skills]. I thrive in leveraging
-            these skills to innovate, problem-solve, and drive results. I'm
-            particularly adept at [Highlight a Specific Skill or Expertise].
-          </p>
-
-          <!-- ... Skills Section Start ... -->
           <section class="skills">
             <div class="container skills-list">
-              <h2>Skills</h2>
-              <section class="skill">
-                <h3>Html</h3>
-                <div class="progress">
-                  <div class="bar" id="Html-progress"></div>
-                  <span class="percentage" id="Html-percentage"></span>
+              <div class="skill-row">
+                <!-- Skill Card Start -->
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fab fa-html5"></i></span>
+                    <h4>HTML</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="95"></div>
+                    <span class="percent">95%</span>
+                  </div>
                 </div>
-                <div class="skill-description">
-                  Web development is my passion, and I have extensive experience
-                  in building websites and web applications.
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fab fa-css3-alt"></i></span>
+                    <h4>CSS</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="90"></div>
+                    <span class="percent">90%</span>
+                  </div>
                 </div>
-              </section>
-
-              <section class="skill">
-                <h3>Css</h3>
-                <div class="progress">
-                  <div class="bar" id="css-progress"></div>
-                  <span class="percentage" id="css-percentage"></span>
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fab fa-js-square"></i></span>
+                    <h4>JavaScript</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="85"></div>
+                    <span class="percent">85%</span>
+                  </div>
                 </div>
-                <div class="skill-description">
-                  Graphic design allows me to express creativity and deliver
-                  visually appealing solutions to clients.
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fab fa-python"></i></span>
+                    <h4>Python</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="90"></div>
+                    <span class="percent">90%</span>
+                  </div>
                 </div>
-              </section>
-
-              <section class="skill">
-                <h3>JavaScript</h3>
-                <div class="progress">
-                  <div class="bar" id="JavaScript-progress"></div>
-                  <span class="percentage" id="JavaScript-percentage"></span>
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fas fa-leaf"></i></span>
+                    <h4>Django</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="85"></div>
+                    <span class="percent">85%</span>
+                  </div>
                 </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fab fa-react"></i></span>
+                    <h4>React</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="80"></div>
+                    <span class="percent">80%</span>
+                  </div>
                 </div>
-              </section>
-
-              <section class="skill">
-                <h3>Bootstrap</h3>
-                <div class="progress">
-                  <div class="bar" id="Bootstrap-progress"></div>
-                  <span class="percentage" id="Bootstrap-percentage"></span>
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fas fa-database"></i></span>
+                    <h4>MySQL</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="75"></div>
+                    <span class="percent">75%</span>
+                  </div>
                 </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fas fa-table"></i></span>
+                    <h4>Pandas</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="70"></div>
+                    <span class="percent">70%</span>
+                  </div>
                 </div>
-              </section>
-              <section class="skill">
-                <h3>Python</h3>
-                <div class="progress">
-                  <div class="bar" id="Python-progress"></div>
-                  <span class="percentage" id="Python-percentage"></span>
+                <div class="skill">
+                  <div class="skill-info">
+                    <span class="skill-icon"><i class="fas fa-chart-bar"></i></span>
+                    <h4>Matplotlib</h4>
+                  </div>
+                  <div class="progress">
+                    <div class="bar" data-width="65"></div>
+                    <span class="percent">65%</span>
+                  </div>
                 </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
-                </div>
-              </section>
-              <section class="skill">
-                <h3>Django</h3>
-                <div class="progress">
-                  <div class="bar" id="Django-progress"></div>
-                  <span class="percentage" id="Django-percentage"></span>
-                </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
-                </div>
-              </section>
-              <section class="skill">
-                <h3>Numpy</h3>
-                <div class="progress">
-                  <div class="bar" id="Numpy-progress"></div>
-                  <span class="percentage" id="Numpy-percentage"></span>
-                </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
-                </div>
-              </section>
-              <section class="skill">
-                <h3>Pandas</h3>
-                <div class="progress">
-                  <div class="bar" id="Pandas-progress"></div>
-                  <span class="percentage" id="Pandas-percentage"></span>
-                </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
-                </div>
-              </section>
-              <section class="skill">
-                <h3>Matplotlib</h3>
-                <div class="progress">
-                  <div class="bar" id="Matplotlib-progress"></div>
-                  <span class="percentage" id="Matplotlib-percentage"></span>
-                </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
-                </div>
-              </section>
-              <section class="skill">
-                <h3>Mysql</h3>
-                <div class="progress">
-                  <div class="bar" id="Mysql-progress"></div>
-                  <span class="percentage" id="Mysql-percentage"></span>
-                </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
-                </div>
-              </section>
-              <section class="skill">
-                <h3>React</h3>
-                <div class="progress">
-                  <div class="bar" id="React-progress"></div>
-                  <span class="percentage" id="React-percentage"></span>
-                </div>
-                <div class="skill-description">
-                  Content writing is a skill I've honed to deliver compelling
-                  and engaging content for various platforms.
-                </div>
-              </section>
-              <!-- Add more skills sections as needed -->
+                <!-- Skill Card End -->
+              </div>
             </div>
           </section>
-          <!-- ... Skills Section End ... -->
+          <style>
+          .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+          }
+          .skill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+          }
+          .skill {
+            flex: 1 1 220px;
+            background: linear-gradient(120deg, #f8f9fa 60%, #e3f2fd 100%);
+            border-radius: 18px;
+            padding: 1.5rem 1rem 1.2rem 1rem;
+            box-shadow: 0 4px 24px rgba(0,123,255,0.10);
+            text-align: left;
+            min-width: 180px;
+            max-width: 260px;
+            position: relative;
+            transition: box-shadow 0.3s, transform 0.2s;
+            overflow: visible;
+            animation: skillFadeIn 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+          }
+          @keyframes skillFadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+          }
+          .skill:hover {
+            box-shadow: 0 12px 32px rgba(0,123,255,0.18);
+            transform: translateY(-4px) scale(1.04);
+          }
+          .skill-info {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.7rem;
+          }
+          .skill-icon {
+            font-size: 2.1rem;
+            color: #007bff;
+            background: #e3f2fd;
+            border-radius: 50%;
+            padding: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            margin: 0;
+          }
+          .skill:hover .skill-icon {
+            background: #007bff;
+            color: #fff;
+            transform: scale(1.15) rotate(-8deg);
+          }
+          .skill h4 {
+            font-size: 1.08rem;
+            color: #007bff;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 0.5px;
+          }
+          .progress {
+            background: #e3f2fd;
+            border-radius: 10px;
+            height: 22px;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 0.1rem;
+            position: relative;
+            box-shadow: 0 1px 6px rgba(0,123,255,0.07);
+          }
+          .bar {
+            height: 22px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+            transition: width 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+            width: 0;
+          }
+          .percent {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.08rem;
+            text-shadow: 0 1px 4px rgba(0,123,255,0.18);
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.6s;
+            z-index: 2;
+          }
+          .skill:hover .percent {
+            opacity: 1;
+            font-size: 1.5rem;
+          }
+          @media (max-width: 900px) {
+            .skill-row {
+              flex-direction: column;
+              gap: 1.2rem;
+              align-items: center;
+            }
+            .skills-list {
+              gap: 1.2rem;
+            }
+          }
+          @media (max-width: 600px) {
+            .skill {
+              min-width: 140px;
+              max-width: 100%;
+              padding: 1rem 0.5rem;
+            }
+            .skill-icon {
+              font-size: 1.5rem;
+              padding: 0.3rem;
+            }
+            .skill h4 {
+              font-size: 0.98rem;
+            }
+            .progress, .bar {
+              height: 16px;
+              border-radius: 8px;
+            }
+            .percent {
+              font-size: 0.92rem;
+              right: 6px;
+            }
+          }
+          </style>
+          <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.bar').forEach(function(bar, idx) {
+              let width = bar.getAttribute('data-width');
+              setTimeout(function() {
+                bar.style.width = width + '%';
+                bar.parentElement.querySelector('.percent').style.opacity = 1;
+              }, 300 + idx * 120);
+            });
+          });
+          </script>
         </div>
       </div>
-      <div class="tab-content" id="Projects">
-        <!-- Noteworthy Projects Section -->
+      <!-- Premium Projects Section: Enhanced UI & Animation -->
+      <!-- Skill Set Progress Bars: Premium Animated UI -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Animate skill set progress bars with premium effect
+          document.querySelectorAll('.skills-list .bar').forEach(function(bar, idx) {
+            let width = bar.getAttribute('data-width');
+            bar.style.width = '0%';
+            bar.parentElement.querySelector('.percent').style.opacity = 0;
+            setTimeout(function() {
+              bar.style.transition = "width 1.2s cubic-bezier(0.645, 0.045, 0.355, 1)";
+              bar.style.width = width + '%';
+              bar.parentElement.querySelector('.percent').style.opacity = 1;
+            }, 400 + idx * 180);
+          });
+        });
+      </script>
+      <style>
+        /* Premium animated progress bar for skill set */
+        .skills-list .progress {
+          background: linear-gradient(90deg, #e3f2fd 0%, #f8f9fa 100%);
+          border-radius: 12px;
+          height: 22px;
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: 0.1rem;
+          position: relative;
+          box-shadow: 0 2px 10px rgba(0,123,255,0.10);
+        }
+        .skills-list .bar {
+          height: 22px;
+          border-radius: 12px;
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          transition: width 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          width: 0;
+          position: relative;
+          z-index: 1;
+          box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+        .skills-list .percent {
+          position: absolute;
+          right: 14px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #fff;
+          font-weight: 700;
+          font-size: 1.08rem;
+          text-shadow: 0 1px 4px rgba(0,123,255,0.18);
+          letter-spacing: 1px;
+          opacity: 0;
+          transition: opacity 0.6s, font-size 0.3s;
+          z-index: 2;
+        }
+        .skill:hover .percent {
+          opacity: 1;
+          font-size: 1.3rem;
+        }
+        .skills-list .progress::after {
+          content: "";
+          position: absolute;
+          left: 0; top: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 12px;
+          background: linear-gradient(90deg, #fff2 0%, #00c6ff22 100%);
+          pointer-events: none;
+          opacity: 0.3;
+          mix-blend-mode: lighten;
+        }
+        @media (max-width: 600px) {
+          .skills-list .progress, .skills-list .bar {
+            height: 14px;
+            border-radius: 8px;
+          }
+          .skills-list .percent {
+            font-size: 0.92rem;
+            right: 6px;
+          }
+        }
+      </style>
+      <div class="about-section premium-projects-section">
+        <h3 class="section-title"><i class="fas fa-star"></i> Premium Projects</h3>
+        <div class="projects-list">
+          <!-- Project Card Start -->
+          <div class="project-card animated-card">
+            <div class="project-image">
+          <img src="{% static 'Images/portfolio-website.jpg' %}" alt="Personal Portfolio Website" />
+              <div class="project-overlay"><span>Premium UI</span></div>
+            </div>
+            <div class="project-info">
+              <h4>Personal Portfolio Website</h4>
+              <p class="project-desc">Built with Django & React, this site showcases my work, skills, and journey. Premium UI, responsive, and fast.</p>
+              <div class="project-tags">
+                <span class="tag">Django</span>
+                <span class="tag">React</span>
+                <span class="tag">HTML/CSS</span>
+              </div>
+              <div class="project-progress">
+                <span class="progress-label">Completion</span>
+                <div class="progress">
+                  <div class="bar" data-width="98"></div>
+                  <span class="percent">98%</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/SachinGoyal-0/PortfolioProject" target="_blank" class="btn btn-primary">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+                <button class="btn btn-secondary show-details-btn">Show Details</button>
+              </div>
+              <div class="project-details">
+                <ul>
+                  <li>Animated transitions and interactive sections</li>
+                  <li>Downloadable resume PDF</li>
+                  <li>Contact and hire options</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="project-card animated-card">
+            <div class="project-image">
+              <img src="{% static 'images/blog-platform.jpg' %}" alt="Blog Platform" />
+              <div class="project-overlay"><span>Live Demo</span></div>
+            </div>
+            <div class="project-info">
+              <h4>Blog Platform</h4>
+              <p class="project-desc">Full-featured blog with user authentication, CRUD, and modern design. Built for scalability and easy content management.</p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Django</span>
+                <span class="tag">Bootstrap</span>
+              </div>
+              <div class="project-progress">
+                <span class="progress-label">Completion</span>
+                <div class="progress">
+                  <div class="bar" data-width="95"></div>
+                  <span class="percent">95%</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="btn btn-primary">
+                  <i class="fa fa-arrow-right"></i> Live Demo
+                </a>
+                <button class="btn btn-secondary show-details-btn">Show Details</button>
+              </div>
+              <div class="project-details">
+                <ul>
+                  <li>Animated blog cards</li>
+                  <li>Comment and like features</li>
+                  <li>Admin dashboard</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="project-card animated-card">
+            <div class="project-image">
+              <img src="{% static 'images/data-dashboard.jpg' %}" alt="Data Analysis Dashboard" />
+              <div class="project-overlay"><span>Analytics</span></div>
+            </div>
+            <div class="project-info">
+              <h4>Data Analysis Dashboard</h4>
+              <p class="project-desc">Interactive dashboard using Python, Pandas, and Matplotlib for real-time data visualization and analytics.</p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Matplotlib</span>
+              </div>
+              <div class="project-progress">
+                <span class="progress-label">Completion</span>
+                <div class="progress">
+                  <div class="bar" data-width="92"></div>
+                  <span class="percent">92%</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="btn btn-primary">
+                  <i class="fa fa-arrow-right"></i> View Project
+                </a>
+                <button class="btn btn-secondary show-details-btn">Show Details</button>
+              </div>
+              <div class="project-details">
+                <ul>
+                  <li>Animated charts and graphs</li>
+                  <li>Download data as CSV</li>
+                  <li>Filter and search analytics</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card End -->
+        </div>
+      </div>
+      <style>
+      .premium-projects-section {
+        background: rgba(255,255,255,0.92);
+        border-radius: 22px;
+        box-shadow: 0 8px 32px rgba(0,123,255,0.12);
+        margin-bottom: 2rem;
+        padding: 2.5rem 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .section-title {
+        font-size: 2rem;
+        color: #007bff;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+      }
+      .projects-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+      .project-card {
+        background: linear-gradient(120deg, #f8f9fa 60%, #e3f2fd 100%);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0,123,255,0.10);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 340px;
+        min-width: 260px;
+        overflow: hidden;
+        transition: box-shadow 0.3s, transform 0.2s;
+        animation: fadeInUp 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        position: relative;
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: translateY(0);}
+      }
+      .project-card:hover {
+        box-shadow: 0 12px 32px rgba(0,123,255,0.18);
+        transform: translateY(-4px) scale(1.04);
+      }
+      .project-image {
+        position: relative;
+        width: 100%;
+      }
+      .project-image img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 18px 18px 0 0;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+      }
+      .project-overlay {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+        color: #fff;
+        padding: 7px 18px;
+        border-radius: 16px;
+        font-size: 1rem;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+        opacity: 0.92;
+        pointer-events: none;
+      }
+      .project-info {
+        padding: 1.2rem 1rem 1.5rem 1rem;
+        text-align: left;
+        width: 100%;
+      }
+      .project-info h4 {
+        font-size: 1.18rem;
+        color: #007bff;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .project-desc {
+        font-size: 1.02rem;
+        color: #222;
+        margin-bottom: 0.7rem;
+        line-height: 1.5;
+      }
+      .project-tags {
+        margin-bottom: 0.8rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .tag {
+        background: #007bff22;
+        color: #007bff;
+        border-radius: 12px;
+        padding: 4px 12px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        margin-right: 0.2rem;
+      }
+      .project-progress {
+        margin: 0.7rem 0 0.5rem 0;
+      }
+      .progress-label {
+        font-size: 0.92rem;
+        color: #007bff;
+        font-weight: 600;
+        margin-right: 0.5rem;
+      }
+      .progress {
+        background: #e3f2fd;
+        border-radius: 8px;
+        height: 14px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 0.1rem;
+        position: relative;
+      }
+      .bar {
+        height: 14px;
+        border-radius: 8px;
+        background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+        transition: width 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        width: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .percent {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        text-shadow: 0 1px 4px rgba(0,123,255,0.18);
+        letter-spacing: 1px;
+        opacity: 0;
+        transition: opacity 0.6s;
+        z-index: 2;
+      }
+      .project-card:hover .percent {
+        opacity: 1;
+        font-size: 1.2rem;
+      }
+      .project-actions {
+        display: flex;
+        gap: 0.7rem;
+        margin-top: 0.7rem;
+      }
+      .btn.btn-primary {
+        background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+        color: #fff;
+        border: none;
+        border-radius: 22px;
+        padding: 8px 22px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+        transition: background 0.2s, transform 0.2s;
+        display: inline-block;
+        text-decoration: none;
+      }
+      .btn.btn-primary:hover {
+        background: linear-gradient(90deg, #0056b3 0%, #0096c7 100%);
+        transform: scale(1.06);
+      }
+      .btn.btn-secondary {
+        background: linear-gradient(90deg, #00c6ff 0%, #007bff 100%);
+        color: #fff;
+        border: none;
+        border-radius: 22px;
+        padding: 6px 18px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+        transition: background 0.2s, transform 0.2s;
+        display: inline-block;
+      }
+      .btn.btn-secondary:hover {
+        background: linear-gradient(90deg, #0096c7 0%, #0056b3 100%);
+        transform: scale(1.06);
+      }
+      .project-details {
+        display: none;
+        margin-top: 0.7rem;
+        background: #e3f2fd;
+        border-radius: 12px;
+        padding: 0.7rem 1rem;
+        box-shadow: 0 1px 6px rgba(0,123,255,0.07);
+        animation: detailsFadeIn 0.5s;
+      }
+      @keyframes detailsFadeIn {
+        from { opacity: 0; transform: translateY(20px);}
+        to { opacity: 1; transform: translateY(0);}
+      }
+      .project-details ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        font-size: 0.98rem;
+        color: #222;
+      }
+      @media (max-width: 900px) {
+        .projects-list {
+          flex-direction: column;
+          gap: 1.2rem;
+          align-items: center;
+        }
+        .project-card {
+          max-width: 100%;
+          min-width: 180px;
+        }
+        .premium-projects-section {
+          padding: 1.5rem 0.5rem;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+      }
+      </style>
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.show-details-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var details = btn.parentElement.nextElementSibling;
+            if (details.style.display === "block") {
+              details.style.display = "none";
+            } else {
+              document.querySelectorAll('.project-details').forEach(function(d) {
+                d.style.display = "none";
+              });
+              details.style.display = "block";
+            }
+          });
+        });
+
+        // Animate progress bars in project cards
+        document.querySelectorAll('.project-card .bar').forEach(function(bar, idx) {
+          let width = bar.getAttribute('data-width');
+          setTimeout(function() {
+            bar.style.width = width + '%';
+            bar.parentElement.querySelector('.percent').style.opacity = 1;
+          }, 400 + idx * 180);
+        });
+      });
+      </script></div>
+      <div class="about-section">
+        <h3>Featured Projects</h3>
+        <div class="projects-list">
+          <!-- Project Card Start -->
+          <div class="project-card animated-card">
+        <div class="project-image">
+          <img src="{% static 'Images/portfolio-website.jpg' %}" alt="Personal Portfolio Website" />
+              <div class="project-overlay"><span>Premium UI</span></div>
+            </div>
+            <div class="project-info">
+              <h4>Personal Portfolio Website</h4>
+          <p>Built with Django & React, this site showcases my work, skills, and journey. Premium UI, responsive, and fast.</p>
+          <span class="project-tags">
+            <span class="tag">Django</span>
+            <span class="tag">React</span>
+            <span class="tag">HTML/CSS</span>
+          </span>
+          <div class="project-progress">
+            <span class="progress-label">Completion</span>
+            <div class="progress">
+          <div class="bar" data-width="98"></div>
+          <span class="percent">98%</span>
+            </div>
+          </div>
+          <a href="https://github.com/SachinGoyal-0/PortfolioProject" target="_blank" class="btn btn-primary">
+            <i class="fab fa-github"></i> View Code
+          </a>
+          <button class="btn btn-secondary show-details-btn">Show Details</button>
+          <div class="project-details">
+            <ul>
+          <li>Animated transitions and interactive sections</li>
+          <li>Downloadable resume PDF</li>
+          <li>Contact and hire options</li>
+            </ul>
+          </div>
+        </div>
+          </div>
+          <div class="project-card animated-card">
+        <div class="project-image">
+          <img src="{% static 'images/blog-platform.jpg' %}" alt="Blog Platform" />
+          <div class="project-overlay"><span>Live Demo</span></div>
+        </div>
+        <div class="project-info">
+          <h4>Blog Platform</h4>
+          <p>Full-featured blog with user authentication, CRUD, and modern design. Built for scalability and easy content management.</p>
+          <span class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Django</span>
+            <span class="tag">Bootstrap</span>
+          </span>
+          <div class="project-progress">
+            <span class="progress-label">Completion</span>
+            <div class="progress">
+          <div class="bar" data-width="95"></div>
+          <span class="percent">95%</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">
+            <i class="fa fa-arrow-right"></i> Live Demo
+          </a>
+          <button class="btn btn-secondary show-details-btn">Show Details</button>
+          <div class="project-details">
+            <ul>
+          <li>Animated blog cards</li>
+          <li>Comment and like features</li>
+          <li>Admin dashboard</li>
+            </ul>
+          </div>
+        </div>
+          </div>
+          <div class="project-card animated-card">
+        <div class="project-image">
+          <img src="{% static 'images/data-dashboard.jpg' %}" alt="Data Analysis Dashboard" />
+          <div class="project-overlay"><span>Analytics</span></div>
+        </div>
+        <div class="project-info">
+          <h4>Data Analysis Dashboard</h4>
+          <p>Interactive dashboard using Python, Pandas, and Matplotlib for real-time data visualization and analytics.</p>
+          <span class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span>
+          </span>
+          <div class="project-progress">
+            <span class="progress-label">Completion</span>
+            <div class="progress">
+          <div class="bar" data-width="92"></div>
+          <span class="percent">92%</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">
+            <i class="fa fa-arrow-right"></i> View Project
+          </a>
+          <button class="btn btn-secondary show-details-btn">Show Details</button>
+          <div class="project-details">
+            <ul>
+          <li>Animated charts and graphs</li>
+          <li>Download data as CSV</li>
+          <li>Filter and search analytics</li>
+            </ul>
+          </div>
+        </div>
+          </div>
+          <!-- Project Card End -->
+        </div>
+      </div>
+      <style>
+        .projects-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          justify-content: center;
+          margin-top: 1.5rem;
+        }
+        .project-card {
+          background: linear-gradient(120deg, #f8f9fa 60%, #e3f2fd 100%);
+          border-radius: 18px;
+          box-shadow: 0 4px 24px rgba(0,123,255,0.10);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 340px;
+          min-width: 260px;
+          overflow: hidden;
+          transition: box-shadow 0.3s, transform 0.2s;
+          animation: fadeInUp 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(40px);}
+          to { opacity: 1; transform: translateY(0);}
+        }
+        .project-card:hover {
+          box-shadow: 0 12px 32px rgba(0,123,255,0.18);
+          transform: translateY(-4px) scale(1.04);
+        }
+        .project-image img {
+          width: 100%;
+          height: 160px;
+          object-fit: cover;
+          border-radius: 18px 18px 0 0;
+          box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+        }
+        .project-overlay {
+          position: absolute;
+          bottom: 8px;
+          right: 8px;
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          color: #fff;
+          padding: 6px 16px;
+          border-radius: 16px;
+          font-size: 0.92rem;
+          font-weight: 600;
+          box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+          opacity: 0.85;
+          pointer-events: none;
+        }
+        .project-info {
+          padding: 1.2rem 1rem 1.5rem 1rem;
+          text-align: left;
+          width: 100%;
+        }
+        .project-info h4 {
+          font-size: 1.15rem;
+          color: #007bff;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+        .project-info p {
+          font-size: 1rem;
+          color: #222;
+          margin-bottom: 0.7rem;
+        }
+        .project-tags {
+          margin-bottom: 0.8rem;
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+        .tag {
+          background: #007bff22;
+          color: #007bff;
+          border-radius: 12px;
+          padding: 4px 12px;
+          font-size: 0.92rem;
+          font-weight: 600;
+          margin-right: 0.2rem;
+        }
+        .btn.btn-primary {
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          color: #fff;
+          border: none;
+          border-radius: 22px;
+          padding: 8px 22px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+          transition: background 0.2s, transform 0.2s;
+          display: inline-block;
+          text-decoration: none;
+          margin-top: 0.5rem;
+        }
+        .btn.btn-primary:hover {
+          background: linear-gradient(90deg, #0056b3 0%, #0096c7 100%);
+          transform: scale(1.06);
+        }
+        .btn.btn-secondary {
+          background: linear-gradient(90deg, #00c6ff 0%, #007bff 100%);
+          color: #fff;
+          border: none;
+          border-radius: 22px;
+          padding: 6px 18px;
+          font-size: 0.95rem;
+          font-weight: 600;
+          cursor: pointer;
+          margin-top: 0.5rem;
+          margin-left: 0.5rem;
+          box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+          transition: background 0.2s, transform 0.2s;
+          display: inline-block;
+        }
+        .btn.btn-secondary:hover {
+          background: linear-gradient(90deg, #0096c7 0%, #0056b3 100%);
+          transform: scale(1.06);
+        }
+        .project-details {
+          display: none;
+          margin-top: 0.7rem;
+          background: #e3f2fd;
+          border-radius: 12px;
+          padding: 0.7rem 1rem;
+          box-shadow: 0 1px 6px rgba(0,123,255,0.07);
+          animation: detailsFadeIn 0.5s;
+        }
+        @keyframes detailsFadeIn {
+          from { opacity: 0; transform: translateY(20px);}
+          to { opacity: 1; transform: translateY(0);}
+        }
+        .project-details ul {
+          margin: 0;
+          padding-left: 1.2rem;
+          font-size: 0.98rem;
+          color: #222;
+        }
+        .project-progress {
+          margin: 0.7rem 0 0.5rem 0;
+        }
+        .progress-label {
+          font-size: 0.92rem;
+          color: #007bff;
+          font-weight: 600;
+          margin-right: 0.5rem;
+        }
+        .progress {
+          background: #e3f2fd;
+          border-radius: 8px;
+          height: 12px;
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: 0.1rem;
+          position: relative;
+        }
+        .bar {
+          height: 12px;
+          border-radius: 8px;
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          transition: width 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          width: 0;
+          position: relative;
+          z-index: 1;
+        }
+        .percent {
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #fff;
+          font-weight: 700;
+          font-size: 1rem;
+          text-shadow: 0 1px 4px rgba(0,123,255,0.18);
+          letter-spacing: 1px;
+          opacity: 0;
+          transition: opacity 0.6s;
+          z-index: 2;
+        }
+        .project-card:hover .percent {
+          opacity: 1;
+          font-size: 1.2rem;
+        }
+        @media (max-width: 900px) {
+          .projects-list {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+          }
+          .project-card {
+        max-width: 100%;
+        min-width: 180px;
+          }
+        }
+      </style>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll('.show-details-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var details = btn.nextElementSibling;
+          if (details.style.display === "block") {
+            details.style.display = "none";
+          } else {
+            document.querySelectorAll('.project-details').forEach(function(d) {
+          d.style.display = "none";
+            });
+            details.style.display = "block";
+          }
+        });
+          });
+
+          // Animate progress bars in project cards
+          document.querySelectorAll('.project-card .bar').forEach(function(bar, idx) {
+        let width = bar.getAttribute('data-width');
+        setTimeout(function() {
+          bar.style.width = width + '%';
+          bar.parentElement.querySelector('.percent').style.opacity = 1;
+        }, 400 + idx * 180);
+          });
+        });
+      </script></div>
+        <h3>Featured Projects</h3>
+        <div class="projects-list"></div>
+      <!-- Project Card Start -->
+      <div class="project-card animated-card"></div>
+        <div class="project-image">
+          <img src="{% static 'images/portfolio-website.jpg' %}" alt="Personal Portfolio Website" />
+          <div class="project-overlay">
+        <span>Premium UI</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h4>Personal Portfolio Website</h4>
+          <p>Built with Django & React, this site showcases my work, skills, and journey. Premium UI, responsive, and fast.</p>
+          <span class="project-tags">
+        <span class="tag">Django</span>
+        <span class="tag">React</span>
+        <span class="tag">HTML/CSS</span>
+          </span>
+          <div class="project-progress">
+            <span class="progress-label">Completion</span>
+            <div class="progress">
+        <div class="bar" data-width="98"></div>
+        <span class="percent">98%</span>
+            </div>
+          </div>
+          <a href="https://github.com/SachinGoyal-0/PortfolioProject" target="_blank" class="btn btn-primary">
+        <i class="fab fa-github"></i> View Code
+          </a>
+          <button class="btn btn-secondary show-details-btn">Show Details</button>
+          <div class="project-details">
+        <ul>
+          <li>Animated transitions and interactive sections</li>
+          <li>Downloadable resume PDF</li>
+          <li>Contact and hire options</li>
+        </ul>
+          </div>
+        </div>
+      </div>
+      <div class="project-card animated-card">
+        <div class="project-image">
+          <img src="{% static 'images/blog-platform.jpg' %}" alt="Blog Platform" />
+          <div class="project-overlay">
+        <span>Live Demo</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h4>Blog Platform</h4>
+          <p>Full-featured blog with user authentication, CRUD, and modern design. Built for scalability and easy content management.</p>
+          <span class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">Bootstrap</span>
+          </span>
+          <div class="project-progress">
+            <span class="progress-label">Completion</span>
+            <div class="progress">
+        <div class="bar" data-width="95"></div>
+        <span class="percent">95%</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">
+        <i class="fa fa-arrow-right"></i> Live Demo
+          </a>
+          <button class="btn btn-secondary show-details-btn">Show Details</button>
+          <div class="project-details">
+        <ul>
+          <li>Animated blog cards</li>
+          <li>Comment and like features</li>
+          <li>Admin dashboard</li>
+        </ul>
+          </div>
+        </div>
+      </div>
+      <div class="project-card animated-card">
+        <div class="project-image">
+          <img src="{% static 'images/data-dashboard.jpg' %}" alt="Data Analysis Dashboard" />
+          <div class="project-overlay">
+        <span>Analytics</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h4>Data Analysis Dashboard</h4>
+          <p>Interactive dashboard using Python, Pandas, and Matplotlib for real-time data visualization and analytics.</p>
+          <span class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Matplotlib</span>
+          </span>
+          <div class="project-progress">
+            <span class="progress-label">Completion</span>
+            <div class="progress">
+        <div class="bar" data-width="92"></div>
+        <span class="percent">92%</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">
+        <i class="fa fa-arrow-right"></i> View Project
+          </a>
+          <button class="btn btn-secondary show-details-btn">Show Details</button>
+          <div class="project-details">
+        <ul>
+          <li>Animated charts and graphs</li>
+          <li>Download data as CSV</li>
+          <li>Filter and search analytics</li>
+        </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Project Card End -->
+        </div>
+      </div>
+      <style>
+        .animated-card {
+      animation: fadeInUp 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+      position: relative;
+        }
+        @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+        }
+        .project-overlay {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 16px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+      opacity: 0.85;
+      pointer-events: none;
+        }
+        .show-details-btn {
+      background: linear-gradient(90deg, #00c6ff 0%, #007bff 100%);
+      color: #fff;
+      border: none;
+      border-radius: 22px;
+      padding: 6px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+        }
+        .show-details-btn:hover {
+      background: linear-gradient(90deg, #0096c7 0%, #0056b3 100%);
+      transform: scale(1.06);
+        }
+        .project-details {
+      display: none;
+      margin-top: 0.7rem;
+      background: #e3f2fd;
+      border-radius: 12px;
+      padding: 0.7rem 1rem;
+      box-shadow: 0 1px 6px rgba(0,123,255,0.07);
+      animation: detailsFadeIn 0.5s;
+        }
+        @keyframes detailsFadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+        }
+        .project-details ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: 0.98rem;
+      color: #222;
+        }
+        /* Progress bar styles for project cards */
+        .project-progress {
+          margin: 0.7rem 0 0.5rem 0;
+        }
+        .progress-label {
+          font-size: 0.92rem;
+          color: #007bff;
+          font-weight: 600;
+          margin-right: 0.5rem;
+        }
+        .progress {
+          background: #e3f2fd;
+          border-radius: 8px;
+          height: 12px;
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: 0.1rem;
+          position: relative;
+        }
+        .bar {
+          height: 12px;
+          border-radius: 8px;
+          background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+          transition: width 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          width: 0;
+          position: relative;
+          z-index: 1;
+        }
+        .percent {
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #fff;
+          font-weight: 700;
+          font-size: 1rem;
+          text-shadow: 0 1px 4px rgba(0,123,255,0.18);
+          letter-spacing: 1px;
+          opacity: 0;
+          transition: opacity 0.6s;
+          z-index: 2;
+        }
+        .project-card:hover .percent {
+          opacity: 1;
+          font-size: 1.2rem;
+        }
+      </style>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.show-details-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var details = btn.nextElementSibling;
+          if (details.style.display === "block") {
+        details.style.display = "none";
+          } else {
+        document.querySelectorAll('.project-details').forEach(function(d) {
+          d.style.display = "none";
+        });
+        details.style.display = "block";
+          }
+        });
+      });
+
+      // Animate progress bars in project cards
+      document.querySelectorAll('.project-card .bar').forEach(function(bar, idx) {
+        let width = bar.getAttribute('data-width');
+        setTimeout(function() {
+          bar.style.width = width + '%';
+          bar.parentElement.querySelector('.percent').style.opacity = 1;
+        }, 400 + idx * 180);
+      });
+        });
+      </script>
+          </div>
         <div class="about-section">
-          <h3>Noteworthy Projects</h3>
-          <p>
-            I've been fortunate to contribute to diverse projects, such as
-            [Project Name], where I played a pivotal role in [Project
-            Contribution]. Each project has been a stepping stone in my
-            professional evolution.
-          </p>
+          <h3>Featured Projects</h3>
+          <div class="projects-list">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="{% static 'images/portfolio-website.jpg' %}" alt="Personal Portfolio Website" />
+          </div>
+          <div class="project-info">
+            <h4>Personal Portfolio Website</h4>
+            <p>Built with Django & React, this site showcases my work, skills, and journey. Premium UI, responsive, and fast.</p>
+            <span class="project-tags">
+          <span class="tag">Django</span>
+          <span class="tag">React</span>
+          <span class="tag">HTML/CSS</span>
+            </span>
+            <a href="https://github.com/SachinGoyal-0/PortfolioProject" target="_blank" class="btn btn-primary">
+          <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="{% static 'images/blog-platform.jpg' %}" alt="Blog Platform" />
+          </div>
+          <div class="project-info">
+            <h4>Blog Platform</h4>
+            <p>Full-featured blog with user authentication, CRUD, and modern design. Built for scalability and easy content management.</p>
+            <span class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Django</span>
+          <span class="tag">Bootstrap</span>
+            </span>
+            <a href="#" class="btn btn-primary">
+          <i class="fa fa-arrow-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="{% static 'images/data-dashboard.jpg' %}" alt="Data Analysis Dashboard" />
+          </div>
+          <div class="project-info">
+            <h4>Data Analysis Dashboard</h4>
+            <p>Interactive dashboard using Python, Pandas, and Matplotlib for real-time data visualization and analytics.</p>
+            <span class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Matplotlib</span>
+            </span>
+            <a href="#" class="btn btn-primary">
+          <i class="fa fa-arrow-right"></i> View Project
+            </a>
+          </div>
+        </div>
+          </div>
+        </div>
+        <style>
+          .projects-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+          }
+          .project-card {
+        background: linear-gradient(120deg, #f8f9fa 60%, #e3f2fd 100%);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0,123,255,0.10);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 340px;
+        min-width: 260px;
+        overflow: hidden;
+        transition: box-shadow 0.3s, transform 0.2s;
+        animation: skillFadeIn 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+          }
+          .project-card:hover {
+        box-shadow: 0 12px 32px rgba(0,123,255,0.18);
+        transform: translateY(-4px) scale(1.04);
+          }
+          .project-image img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 18px 18px 0 0;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+          }
+          .project-info {
+        padding: 1.2rem 1rem 1.5rem 1rem;
+        text-align: left;
+        width: 100%;
+          }
+          .project-info h4 {
+        font-size: 1.15rem;
+        color: #007bff;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+          }
+          .project-info p {
+        font-size: 1rem;
+        color: #222;
+        margin-bottom: 0.7rem;
+          }
+          .project-tags {
+        margin-bottom: 0.8rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+          }
+          .tag {
+        background: #007bff22;
+        color: #007bff;
+        border-radius: 12px;
+        padding: 4px 12px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        margin-right: 0.2rem;
+          }
+          .btn.btn-primary {
+        background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+        color: #fff;
+        border: none;
+        border-radius: 22px;
+        padding: 8px 22px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+        transition: background 0.2s, transform 0.2s;
+        display: inline-block;
+        text-decoration: none;
+        margin-top: 0.5rem;
+          }
+          .btn.btn-primary:hover {
+        background: linear-gradient(90deg, #0056b3 0%, #0096c7 100%);
+        transform: scale(1.06);
+          }
+          @media (max-width: 900px) {
+        .projects-list {
+          flex-direction: column;
+          gap: 1.2rem;
+          align-items: center;
+        }
+        .project-card {
+          max-width: 100%;
+          min-width: 180px;
+        }
+          }
+        </style>
+      </div></div>
+        <div class="about-section"></div>
+          <h3>Projects</h3>
+          <ul>
+            <li><strong>Personal Portfolio Website:</strong> Built with Django and React, showcasing my work and skills.</li>
+            <li><strong>Blog Platform:</strong> Developed a full-featured blog with user authentication and CRUD operations.</li>
+            <li><strong>Data Analysis Dashboard:</strong> Used Python, Pandas, and Matplotlib for interactive data visualization.</li>
+          </ul>
         </div>
       </div>
-      <div class="tab-content" id="Connect">
-        <!-- Connect with Me Section -->
+      <div class="tab-content" id="Connect"></div>
         <div class="about-section">
-          <h3>Connect with Me</h3>
+          <h3>Connect</h3>
           <p>
-            I love connecting with fellow enthusiasts! Feel free to connect with
-            me on [Your Social Media Links] or drop me a line at [Your Email
-            Address]. I'm always open to collaborations, discussions, and shared
-            adventures.
+            Let's connect and collaborate! Reach out via email or LinkedIn, or check out my GitHub for more projects.
           </p>
+          <div class="social-links"></div>
+            <a href="mailto:sachingoyalg2020@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/SachinGoyal-0" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sachingoyal0/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
-      <!-- Closing Note Section -->
-      <div class="about-section note">
+      <div class="about-section note"></div>
         <h3>Closing Note</h3>
         <p>
-          Life is an incredible journey, and I'm excited about the chapters yet
-          to unfold. Let's connect, collaborate, and make a positive impact
-          together!
+          Life is an incredible journey, and I'm excited about the chapters yet to unfold. Let's connect, collaborate, and make a positive impact together!
         </p>
       </div>
-
       <div class="button-container">
         <a href="{% url 'generate_pdf' %}" class="btn btn-primary" download="GeneratedResume.pdf">
           <button>Download CV as PDF</button>
         </a>
-
         <a href="mailto:sachingoyalg2020@gmail.com" class="btn btn-secondary">
           <button>Hire Me</button>
         </a>
       </div>
+      <script>
+        function openTab(evt, tabName) {
+          var i, tabContent, tabLinks;
+          tabContent = document.getElementsByClassName("tab-content");
+          for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+          }
+          tabLinks = document.getElementsByClassName("tab-link");
+          for (i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove("active");
+          }
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.classList.add("active");
+        }
+        document.getElementById("defaultOpen").click();
+      </script>
+      <!-- Google Fonts for premium look -->
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
     </div>
-
-    <script>
-      function openTab(evt, tabName) {
-        var i, tabContent, tabLinks;
-        tabContent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabContent.length; i++) {
-          tabContent[i].style.display = "none";
-        }
-        tabLinks = document.getElementsByClassName("tab-link");
-        for (i = 0; i < tabLinks.length; i++) {
-          tabLinks[i].classList.remove("active");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.classList.add("active");
-      }
-
-      // Set the default tab as active when the page loads
-      document.getElementById("defaultOpen").click();
-    </script>
-  </section>
+  </section></div>
   <!-- About Section Content END -->
   <!-- ----------------------------------------********--------------------------- -->
   <!-- ... Portfolio Section Start ... -->
@@ -681,31 +2346,35 @@
             </div>
           </div>
           <div class="image-overlay">
-            <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Web Development Image" />
-          </div>
-        </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const questions = document.querySelectorAll(".faq-question");
+        const answers = document.querySelectorAll(".faq-answer");
+        const icons = document.querySelectorAll(".toggle-icon");
 
-        <!-- Add two more service items below -->
-        <div class="service-item">
-          <div class="service-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <div class="inner-card service-content">
-            <div class="front">
-              <h3>Analytics and Reporting</h3>
-              <p>
-                We provide advanced analytics and reporting solutions to help
-                you make data-driven decisions.
-              </p>
-            </div>
-            <div class="back">
-              <p>Back content for Web Development.</p>
-            </div>
-          </div>
-          <div class="image-overlay">
-            <img src="{% static 'images/spider-man-peter parker.jpg' %}" alt="Web Development Image" />
-          </div>
-        </div>
+        questions.forEach((question, index) => {
+          question.addEventListener("click", () => {
+            answers.forEach((answer, i) => {
+              if (i !== index) {
+                answer.classList.remove("active");
+                answer.style.maxHeight = null;
+                icons[i].textContent = "+";
+              }
+            });
+
+            answers[index].classList.toggle("active");
+            if (answers[index].classList.contains("active")) {
+              answers[index].style.maxHeight =
+                answers[index].scrollHeight + "px";
+              icons[index].textContent = "−";
+            } else {
+              answers[index].style.maxHeight = null;
+              icons[index].textContent = "+";
+            }
+          });
+        });
+      });
+    </script>
 
         <div class="service-item">
           <div class="service-icon">
